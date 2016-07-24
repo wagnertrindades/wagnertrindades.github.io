@@ -6,6 +6,9 @@ baseurl: '/home/'
 # google_analytics: 'UA-XXXXXX-X'
 # disqus_shortname: 'your-disqus-name'
 
+github:
+  baseurl: ''
+
 author:
   name: 'Wagner Trindade'
   email: wtrindades@gmail.com

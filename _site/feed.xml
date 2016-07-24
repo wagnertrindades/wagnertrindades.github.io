@@ -3,10 +3,10 @@
   <channel>
     <title>Wagner Trindade</title>
     <description>My blog</description>
-    <link>http://wagnertrindades.github.io/home//</link>
-    <atom:link href="http://wagnertrindades.github.io/home//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 24 Jul 2016 23:21:24 +0000</pubDate>
-    <lastBuildDate>Sun, 24 Jul 2016 23:21:24 +0000</lastBuildDate>
+    <link>http://wagnertrindades.github.io/</link>
+    <atom:link href="http://wagnertrindades.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sun, 24 Jul 2016 23:31:23 +0000</pubDate>
+    <lastBuildDate>Sun, 24 Jul 2016 23:31:23 +0000</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -29,8 +29,8 @@
 
 </description>
         <pubDate>Fri, 08 Jan 2016 15:04:23 +0000</pubDate>
-        <link>http://wagnertrindades.github.io/home//2016/welcome-to-jekyll/</link>
-        <guid isPermaLink="true">http://wagnertrindades.github.io/home//2016/welcome-to-jekyll/</guid>
+        <link>http://wagnertrindades.github.io/2016/welcome-to-jekyll/</link>
+        <guid isPermaLink="true">http://wagnertrindades.github.io/2016/welcome-to-jekyll/</guid>
         
         <category>jekyll</category>
         
