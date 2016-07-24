@@ -2,12 +2,9 @@
 title: Wagner Trindade
 description: 'My blog'
 url: 'http://wagnertrindades.github.io'
-baseurl: '/home/'
+baseurl: ''
 # google_analytics: 'UA-XXXXXX-X'
 # disqus_shortname: 'your-disqus-name'
-
-github:
-  baseurl: ''
 
 author:
   name: 'Wagner Trindade'
