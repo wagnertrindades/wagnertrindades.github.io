@@ -1,18 +1,18 @@
 # Site settings
-title: Jekyll-Uno
-description: 'Jekyll-Uno - a minimal, responsive theme for Jekyll'
+title: Wagner Trindade
+description: 'My blog'
 url: 'http://wagnertrindades.github.io'
 baseurl: ''
 # google_analytics: 'UA-XXXXXX-X'
 # disqus_shortname: 'your-disqus-name'
 
 author:
-  name: 'Josh Gerdes'
-  email: josh@joshgerdes.com
-  twitter_username: joshgerdes
-  facebook_username: joshgerdes
-  github_username:  joshgerdes
-  linkedin_username:  joshgerdes
+  name: 'Wagner Trindade'
+  email: wtrindades@gmail.com
+  twitter_username: WagnerTrindades
+  facebook_username: wagner.trindade.9
+  github_username: wagnertrindades
+  linkedin_username: wagner-trindade-sanseverino-2592279a
 
 defaults:
   -
