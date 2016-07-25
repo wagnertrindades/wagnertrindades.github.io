@@ -5,9 +5,24 @@
     <description>Web Developer</description>
     <link>http://wagnertrindades.github.io//</link>
     <atom:link href="http://wagnertrindades.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 25 Jul 2016 01:56:43 +0000</pubDate>
-    <lastBuildDate>Mon, 25 Jul 2016 01:56:43 +0000</lastBuildDate>
+    <pubDate>Mon, 25 Jul 2016 02:07:55 +0000</pubDate>
+    <lastBuildDate>Mon, 25 Jul 2016 02:07:55 +0000</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
+    
+      <item>
+        <title>Welcome to My Blog</title>
+        <description>&lt;p&gt;Em breve!!!&lt;/p&gt;
+</description>
+        <pubDate>Sun, 24 Jul 2016 23:01:23 +0000</pubDate>
+        <link>http://wagnertrindades.github.io//2016/welcome-to-my-blog/</link>
+        <guid isPermaLink="true">http://wagnertrindades.github.io//2016/welcome-to-my-blog/</guid>
+        
+        <category>jekyll</category>
+        
+        
+        <category>jekyll</category>
+        
+      </item>
     
       <item>
         <title>Welcome to Jekyll!</title>

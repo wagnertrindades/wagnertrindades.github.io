@@ -3,6 +3,21 @@
   
     
     <url>
+      <loc>http://wagnertrindades.github.io/2016/welcome-to-my-blog/</loc>
+      
+        <lastmod>2016-07-24T23:01:23+00:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://wagnertrindades.github.io/2016/welcome-to-jekyll/</loc>
       
         <lastmod>2016-01-08T15:04:23+00:00</lastmod>
@@ -21,7 +36,7 @@
     <url>
       <loc>http://wagnertrindades.github.io/categories/</loc>
       
-        <lastmod>2016-07-25T01:56:43+00:00</lastmod>
+        <lastmod>2016-07-25T02:07:55+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -36,7 +51,7 @@
     <url>
       <loc>http://wagnertrindades.github.io/feed.xml</loc>
       
-        <lastmod>2016-07-25T01:56:43+00:00</lastmod>
+        <lastmod>2016-07-25T02:07:55+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -51,7 +66,7 @@
     <url>
       <loc>http://wagnertrindades.github.io/</loc>
       
-        <lastmod>2016-07-25T01:56:43+00:00</lastmod>
+        <lastmod>2016-07-25T02:07:55+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -66,7 +81,7 @@
     <url>
       <loc>http://wagnertrindades.github.io/js/main.js</loc>
       
-        <lastmod>2016-07-25T01:56:43+00:00</lastmod>
+        <lastmod>2016-07-25T02:07:55+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -83,7 +98,7 @@
     <url>
       <loc>http://wagnertrindades.github.io/tags/</loc>
       
-        <lastmod>2016-07-25T01:56:43+00:00</lastmod>
+        <lastmod>2016-07-25T02:07:55+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
