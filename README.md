@@ -1,3 +1,3 @@
-My blog
+# This is my blog
 
-Done in [Jekyll](http://jekyllrb.com)
+It uses [Jekyll](http://jekyllrb.com) to generate the static website
