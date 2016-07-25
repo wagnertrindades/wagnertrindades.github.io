@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Wagner Trindade</title>
-    <description>My blog</description>
+    <description>Web Developer</description>
     <link>http://wagnertrindades.github.io//</link>
     <atom:link href="http://wagnertrindades.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 25 Jul 2016 01:08:37 +0000</pubDate>
-    <lastBuildDate>Mon, 25 Jul 2016 01:08:37 +0000</lastBuildDate>
+    <pubDate>Mon, 25 Jul 2016 01:16:21 +0000</pubDate>
+    <lastBuildDate>Mon, 25 Jul 2016 01:16:21 +0000</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
