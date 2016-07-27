@@ -192,9 +192,66 @@ lambda_stop # Cheguei...; Hey; Saindo...
 > Use de acordo com a situação...
 
 
-##  Constantes não são constantes
+## Constantes não são constantes
+
+```ruby
+CONSTANT = [:a, :b]
+=> [:a, :b]
+
+CONSTANT << :c
+=> [:a, :b, :c]
+```
+![ish](/images/posts/2016-07-25-5-coisas-que-eu-sabia-de-ruby/whatafuck.jpg)
+
+> Mas eu quero uma constante...
+
+```ruby
+CONSTANT = [:a, :b].freeze
+=> [:a, :b]
+
+CONSTANT << :c
+RuntimeError: can't modify frozen Array
+       from (irb):2
+       from /home/rd/.rbenv/versions/2.2.2/bin/irb:11:in `<main>`
+
+CONSTANT
+=> [:a, :b]
+```
+> Mas...
+
+```ruby
+CONSTANT = "xunda"
+=> "xunda"
+
+CONSTANT = "blah"
+(irb):2: warning: already initialized constant CONSTANT
+(irb):1: warning: previous definition of CONSTANT was here
+=> "blah"
+
+CONSTANT
+=> "blah"
+```
+
+```ruby
+CONSTANT = "xunda".freeze
+=> "xunda"
+
+CONSTANT = "blah"
+(irb):2: warning: already initialized constant CONSTANT
+(irb):1: warning: previous definition of CONSTANT was here
+=> "blah"
+
+CONSTANT
+=> "blah"
+```
+
+## Conclusão
+
+> Eu consigo fazer com que uma constante não seja alterada porém não
+> consigo fazer com que ela não seja reinicializada
+
+! Pesquizar alguma formar de deixa-la inalterada porque o Jonatas falou
+que tem um jeito sim
 
 ##  Precedência de operadores booleanos
-##  Constantes não são constantes
 
-##  Precedência de operadores booleanos

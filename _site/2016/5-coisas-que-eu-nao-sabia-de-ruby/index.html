@@ -372,10 +372,73 @@ muleke perguntou sobre matematica para o professor de ciências</p>
 
 <h2 id="constantes-no-so-constantes">Constantes não são constantes</h2>
 
-<h2 id="precedncia-de-operadores-booleanos">Precedência de operadores booleanos</h2>
-<p>##  Constantes não são constantes</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="no">CONSTANT</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">]</span>
+<span class="o">=&gt;</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">]</span>
 
-<h2 id="precedncia-de-operadores-booleanos-1">Precedência de operadores booleanos</h2>
+<span class="no">CONSTANT</span> <span class="o">&lt;&lt;</span> <span class="ss">:c</span>
+<span class="o">=&gt;</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">,</span> <span class="ss">:c</span><span class="p">]</span>
+</code></pre>
+</div>
+<p><img src="/images/posts/2016-07-25-5-coisas-que-eu-sabia-de-ruby/whatafuck.jpg" alt="ish" /></p>
+
+<blockquote>
+  <p>Mas eu quero uma constante…</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="no">CONSTANT</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">].</span><span class="nf">freeze</span>
+<span class="o">=&gt;</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">]</span>
+
+<span class="no">CONSTANT</span> <span class="o">&lt;&lt;</span> <span class="ss">:c</span>
+<span class="no">RuntimeError</span><span class="p">:</span> <span class="n">can</span><span class="err">'</span><span class="n">t</span> <span class="n">modify</span> <span class="n">frozen</span> <span class="no">Array</span>
+       <span class="n">from</span> <span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">2</span>
+       <span class="n">from</span> <span class="sr">/home/</span><span class="n">rd</span><span class="o">/</span><span class="p">.</span><span class="nf">rbenv</span><span class="o">/</span><span class="n">versions</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">irb</span><span class="p">:</span><span class="mi">11</span><span class="ss">:in</span> <span class="sb">`&lt;main&gt;`</span>
+
+<span class="no">CONSTANT</span>
+<span class="o">=&gt;</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">]</span>
+</code></pre>
+</div>
+<blockquote>
+  <p>Mas…</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="no">CONSTANT</span> <span class="o">=</span> <span class="s2">"xunda"</span>
+<span class="o">=&gt;</span> <span class="s2">"xunda"</span>
+
+<span class="no">CONSTANT</span> <span class="o">=</span> <span class="s2">"blah"</span>
+<span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">2</span><span class="p">:</span> <span class="ss">warning: </span><span class="n">already</span> <span class="n">initialized</span> <span class="n">constant</span> <span class="no">CONSTANT</span>
+<span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">1</span><span class="p">:</span> <span class="ss">warning: </span><span class="n">previous</span> <span class="n">definition</span> <span class="n">of</span> <span class="no">CONSTANT</span> <span class="n">was</span> <span class="n">here</span>
+<span class="o">=&gt;</span> <span class="s2">"blah"</span>
+
+<span class="no">CONSTANT</span>
+<span class="o">=&gt;</span> <span class="s2">"blah"</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="no">CONSTANT</span> <span class="o">=</span> <span class="s2">"xunda"</span><span class="p">.</span><span class="nf">freeze</span>
+<span class="o">=&gt;</span> <span class="s2">"xunda"</span>
+
+<span class="no">CONSTANT</span> <span class="o">=</span> <span class="s2">"blah"</span>
+<span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">2</span><span class="p">:</span> <span class="ss">warning: </span><span class="n">already</span> <span class="n">initialized</span> <span class="n">constant</span> <span class="no">CONSTANT</span>
+<span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">1</span><span class="p">:</span> <span class="ss">warning: </span><span class="n">previous</span> <span class="n">definition</span> <span class="n">of</span> <span class="no">CONSTANT</span> <span class="n">was</span> <span class="n">here</span>
+<span class="o">=&gt;</span> <span class="s2">"blah"</span>
+
+<span class="no">CONSTANT</span>
+<span class="o">=&gt;</span> <span class="s2">"blah"</span>
+</code></pre>
+</div>
+
+<h2 id="concluso-3">Conclusão</h2>
+
+<blockquote>
+  <p>Eu consigo fazer com que uma constante não seja alterada porém não
+consigo fazer com que ela não seja reinicializada</p>
+</blockquote>
+
+<p>! Pesquizar alguma formar de deixa-la inalterada porque o Jonatas falou
+que tem um jeito sim</p>
+
+<h2 id="precedncia-de-operadores-booleanos">Precedência de operadores booleanos</h2>
+
 
   </section>
   
