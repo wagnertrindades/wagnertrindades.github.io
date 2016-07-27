@@ -105,6 +105,96 @@ result.to_s('F')
 
 ##  Diferenças entre Proc e Lambda
 
+### Primeira diferença
+
+#### Proc
+
+```ruby
+show = proc { |x, y| puts "#{x}, #{y}" }
+=> #<Proc:0x817487288372487@(irb):8>
+
+show.call(1, 2)
+1, 2
+=> nil
+
+show.call(1)
+1,
+=> nil
+
+show.call(1, 2, 3)
+1, 2
+=> nil
+```
+
+> Não valida a quantidade de parametros
+
+
+#### Lambda
+
+```ruby
+show = lambda { |x, y| puts "#{x}, #{y}" }
+=> #<Proc:0x8174872882137@(irb):4 (lambda)>
+
+show.call(1, 2)
+1, 2
+=> nil
+
+show.call(1)
+ArgumentError: wrong number of arguments (1 for 2)
+        from (irb):4:in `block in irb_binding`
+        from (irb):6:in `call`
+        from (irb):6
+        from /home/rd/.rbenv/versions/2.2.2/bin/irb:11:in `<main>`
+
+show.call(1, 2, 3)
+ArgumentError: wrong number of arguments (3 for 2)
+        from (irb):4:in `block in irb_binding`
+        from (irb):7:in `call`
+        from (irb):7
+        from /home/rd/.rbenv/versions/2.2.2/bin/irb:11:in `<main>`
+
+```
+
+> Valida a quantidade de parametros
+
+### Segunda diferença
+
+#### Proc
+
+```ruby
+def proc_stop
+  puts "Cheguei..."
+  proc { puts "Hey"; return; puts "Ho!" }.call
+  puts "Saindo..."
+end
+
+proc_stop # Cheguei...; Hey
+```
+
+> O return dentro de um Proc faz o retorno do método associado
+
+#### Lambda
+
+```ruby
+def lambda_stop
+  puts "Cheguei..."
+  lambda { puts "Hey"; return; puts "Ho!" }.call
+  puts "Saindo..."
+end
+
+lambda_stop # Cheguei...; Hey; Saindo...
+```
+
+> O return dentro de um Lambda retorna apenas o contexto do Lambda
+
+### Conclusão
+
+> Use de acordo com a situação...
+
+
+##  Constantes não são constantes
+
+##  Precedência de operadores booleanos
 ##  Constantes não são constantes
 
 ##  Precedência de operadores booleanos

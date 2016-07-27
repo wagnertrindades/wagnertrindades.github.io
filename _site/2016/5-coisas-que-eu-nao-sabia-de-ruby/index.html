@@ -275,9 +275,107 @@ muleke perguntou sobre matematica para o professor de ciências</p>
 
 <h2 id="diferenas-entre-proc-e-lambda">Diferenças entre Proc e Lambda</h2>
 
+<h3 id="primeira-diferena">Primeira diferença</h3>
+
+<h4 id="proc">Proc</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">show</span> <span class="o">=</span> <span class="nb">proc</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">y</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+<span class="o">=&gt;</span> <span class="c1">#&lt;Proc:0x817487288372487@(irb):8&gt;</span>
+
+<span class="n">show</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="o">=&gt;</span> <span class="kp">nil</span>
+
+<span class="n">show</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="mi">1</span><span class="p">,</span>
+<span class="o">=&gt;</span> <span class="kp">nil</span>
+
+<span class="n">show</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="o">=&gt;</span> <span class="kp">nil</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>Não valida a quantidade de parametros</p>
+</blockquote>
+
+<h4 id="lambda">Lambda</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">show</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">y</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+<span class="o">=&gt;</span> <span class="c1">#&lt;Proc:0x8174872882137@(irb):4 (lambda)&gt;</span>
+
+<span class="n">show</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="o">=&gt;</span> <span class="kp">nil</span>
+
+<span class="n">show</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="no">ArgumentError</span><span class="p">:</span> <span class="n">wrong</span> <span class="n">number</span> <span class="n">of</span> <span class="n">arguments</span> <span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">from</span> <span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">4</span><span class="ss">:in</span> <span class="sb">`block in irb_binding`</span>
+        <span class="n">from</span> <span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">6</span><span class="ss">:in</span> <span class="sb">`call`</span>
+        <span class="n">from</span> <span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">6</span>
+        <span class="n">from</span> <span class="sr">/home/</span><span class="n">rd</span><span class="o">/</span><span class="p">.</span><span class="nf">rbenv</span><span class="o">/</span><span class="n">versions</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">irb</span><span class="p">:</span><span class="mi">11</span><span class="ss">:in</span> <span class="sb">`&lt;main&gt;`</span>
+
+<span class="n">show</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="no">ArgumentError</span><span class="p">:</span> <span class="n">wrong</span> <span class="n">number</span> <span class="n">of</span> <span class="n">arguments</span> <span class="p">(</span><span class="mi">3</span> <span class="k">for</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">from</span> <span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">4</span><span class="ss">:in</span> <span class="sb">`block in irb_binding`</span>
+        <span class="n">from</span> <span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">7</span><span class="ss">:in</span> <span class="sb">`call`</span>
+        <span class="n">from</span> <span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">7</span>
+        <span class="n">from</span> <span class="sr">/home/</span><span class="n">rd</span><span class="o">/</span><span class="p">.</span><span class="nf">rbenv</span><span class="o">/</span><span class="n">versions</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">irb</span><span class="p">:</span><span class="mi">11</span><span class="ss">:in</span> <span class="sb">`&lt;main&gt;`</span>
+
+</code></pre>
+</div>
+
+<blockquote>
+  <p>Valida a quantidade de parametros</p>
+</blockquote>
+
+<h3 id="segunda-diferena">Segunda diferença</h3>
+
+<h4 id="proc-1">Proc</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">proc_stop</span>
+  <span class="nb">puts</span> <span class="s2">"Cheguei..."</span>
+  <span class="nb">proc</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">"Hey"</span><span class="p">;</span> <span class="k">return</span><span class="p">;</span> <span class="nb">puts</span> <span class="s2">"Ho!"</span> <span class="p">}.</span><span class="nf">call</span>
+  <span class="nb">puts</span> <span class="s2">"Saindo..."</span>
+<span class="k">end</span>
+
+<span class="n">proc_stop</span> <span class="c1"># Cheguei...; Hey</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>O return dentro de um Proc faz o retorno do método associado</p>
+</blockquote>
+
+<h4 id="lambda-1">Lambda</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">lambda_stop</span>
+  <span class="nb">puts</span> <span class="s2">"Cheguei..."</span>
+  <span class="nb">lambda</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">"Hey"</span><span class="p">;</span> <span class="k">return</span><span class="p">;</span> <span class="nb">puts</span> <span class="s2">"Ho!"</span> <span class="p">}.</span><span class="nf">call</span>
+  <span class="nb">puts</span> <span class="s2">"Saindo..."</span>
+<span class="k">end</span>
+
+<span class="n">lambda_stop</span> <span class="c1"># Cheguei...; Hey; Saindo...</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>O return dentro de um Lambda retorna apenas o contexto do Lambda</p>
+</blockquote>
+
+<h3 id="concluso-2">Conclusão</h3>
+
+<blockquote>
+  <p>Use de acordo com a situação…</p>
+</blockquote>
+
 <h2 id="constantes-no-so-constantes">Constantes não são constantes</h2>
 
 <h2 id="precedncia-de-operadores-booleanos">Precedência de operadores booleanos</h2>
+<p>##  Constantes não são constantes</p>
+
+<h2 id="precedncia-de-operadores-booleanos-1">Precedência de operadores booleanos</h2>
 
   </section>
   
