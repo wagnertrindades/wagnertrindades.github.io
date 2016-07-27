@@ -225,6 +225,54 @@ alocados em memória “para sempre”</p>
 
 <h2 id="cuidado-com-floats">Cuidado com Floats</h2>
 
+<h3 id="float">Float</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="mi">0</span><span class="o">.</span><span class="mo">0004</span> <span class="o">-</span> <span class="mi">0</span><span class="o">.</span><span class="mo">0003</span> <span class="o">==</span> <span class="mi">0</span><span class="o">.</span><span class="mo">0001</span>
+<span class="o">=&gt;</span> <span class="kp">false</span>
+
+<span class="mi">0</span><span class="o">.</span><span class="mo">0004</span> <span class="o">-</span> <span class="mi">0</span><span class="o">.</span><span class="mo">0003</span>
+<span class="o">=&gt;</span> <span class="mi">0</span><span class="o">.</span><span class="mo">0010000000000000005</span>
+</code></pre>
+</div>
+<p><img src="/images/posts/2016-07-25-5-coisas-que-eu-sabia-de-ruby/ish.jpg" alt="ish" /></p>
+
+<blockquote>
+  <p>Explicar o porque ocorre isso com o Float</p>
+</blockquote>
+
+<h3 id="bigdecimal">BigDecimal</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'bigdecimal'</span>
+<span class="o">=&gt;</span> <span class="kp">true</span>
+
+<span class="n">num1</span> <span class="o">=</span> <span class="no">BigDecimal</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"0.0004"</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="c1">#&lt;BigDecimal:7f6961d47328, '0.4E-3',9(18)&gt;</span>
+
+<span class="n">num2</span> <span class="o">=</span> <span class="no">BigDecimal</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"0.0003"</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="c1">#&lt;BigDecimal:7f6961d98237, '0.3E-3',9(18)&gt;</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">-</span> <span class="n">num2</span>
+<span class="o">=&gt;</span> <span class="c1">#&lt;BigDecimal:7f6961d83vc3, '0.1E-3',9(18)&gt;</span>
+
+<span class="n">result</span><span class="p">.</span><span class="nf">to_s</span><span class="p">(</span><span class="s1">'F'</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="s2">"0.0001"</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>Explicar o porque o BigDecimal faz certo e o Float não</p>
+</blockquote>
+
+<h3 id="concluso-1">Conclusão</h3>
+
+<blockquote>
+  <p>Pergunte ao cara certo…
+Aqui posso colocar o video do muleke que não sabia a conta de
+matemática e comparar com esse contexto falando que o Float não é o
+professor correto para fazer esse tipo de conta da mesma forma que o
+muleke perguntou sobre matematica para o professor de ciências</p>
+</blockquote>
+
 <h2 id="diferenas-entre-proc-e-lambda">Diferenças entre Proc e Lambda</h2>
 
 <h2 id="constantes-no-so-constantes">Constantes não são constantes</h2>
