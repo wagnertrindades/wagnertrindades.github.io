@@ -5,8 +5,8 @@
     <description>Web Developer</description>
     <link>http://wagnertrindades.github.io//</link>
     <atom:link href="http://wagnertrindades.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 26 Jul 2016 00:56:05 +0000</pubDate>
-    <lastBuildDate>Tue, 26 Jul 2016 00:56:05 +0000</lastBuildDate>
+    <pubDate>Wed, 27 Jul 2016 00:41:04 +0000</pubDate>
+    <lastBuildDate>Wed, 27 Jul 2016 00:41:04 +0000</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -14,6 +14,62 @@
         <description>&lt;h3 id=&quot;introduo&quot;&gt;Introdução&lt;/h3&gt;
 
 &lt;h2 id=&quot;diferena-entre-symbol-e-string&quot;&gt;Diferença entre :Symbol e “String”&lt;/h2&gt;
+
+&lt;h3 id=&quot;symbol&quot;&gt;:Symbol&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:xunda&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:xunda&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:xunda&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:xunda&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;object_id&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1154268&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;object_id&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1154268&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Dois &lt;strong&gt;Symbols&lt;/strong&gt; com os mesmos caracteres são um &lt;strong&gt;único objeto&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;string&quot;&gt;“String”&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;xunda&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;xunda&quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;xunda&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;xunda&quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;object_id&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6990405680384&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;object_id&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6990405442200&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Duas &lt;strong&gt;Strings&lt;/strong&gt; mesmo tendo os mesmos caracteres são dois &lt;strong&gt;objetos
+diferentes&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;garbage-collector&quot;&gt;Garbage Collector&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Falar o que é Garbage Collector&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Explicar que o Symbol apesar de ser mais rápido e ocupar menos espaço em
+memória não é coletado pelo garbage collector o que pode causar um
+sistema mais lento caso tenha diversos Symbols em memória que ficam
+alocados em memória “para sempre”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;concluso&quot;&gt;Conclusão&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Use os saiba usa-los de acordo com cada caso&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h2 id=&quot;cuidado-com-floats&quot;&gt;Cuidado com Floats&lt;/h2&gt;
 

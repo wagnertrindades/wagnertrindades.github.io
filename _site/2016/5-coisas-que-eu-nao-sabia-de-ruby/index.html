@@ -167,6 +167,62 @@
 
 <h2 id="diferena-entre-symbol-e-string">Diferença entre :Symbol e “String”</h2>
 
+<h3 id="symbol">:Symbol</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="ss">:xunda</span>
+<span class="o">=&gt;</span> <span class="ss">:xunda</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="ss">:xunda</span>
+<span class="o">=&gt;</span> <span class="ss">:xunda</span>
+
+<span class="n">a</span><span class="p">.</span><span class="nf">object_id</span>
+<span class="o">=&gt;</span> <span class="mi">1154268</span>
+
+<span class="n">b</span><span class="p">.</span><span class="nf">object_id</span>
+<span class="o">=&gt;</span> <span class="mi">1154268</span>
+</code></pre>
+</div>
+
+<p>Dois <strong>Symbols</strong> com os mesmos caracteres são um <strong>único objeto</strong></p>
+
+<h3 id="string">“String”</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="s2">"xunda"</span>
+<span class="o">=&gt;</span> <span class="s2">"xunda"</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="s2">"xunda"</span>
+<span class="o">=&gt;</span> <span class="s2">"xunda"</span>
+
+<span class="n">a</span><span class="p">.</span><span class="nf">object_id</span>
+<span class="o">=&gt;</span> <span class="mi">6990405680384</span>
+
+<span class="n">b</span><span class="p">.</span><span class="nf">object_id</span>
+<span class="o">=&gt;</span> <span class="mi">6990405442200</span>
+</code></pre>
+</div>
+
+<p>Duas <strong>Strings</strong> mesmo tendo os mesmos caracteres são dois <strong>objetos
+diferentes</strong></p>
+
+<h3 id="garbage-collector">Garbage Collector</h3>
+
+<blockquote>
+  <p>Falar o que é Garbage Collector</p>
+</blockquote>
+
+<blockquote>
+  <p>Explicar que o Symbol apesar de ser mais rápido e ocupar menos espaço em
+memória não é coletado pelo garbage collector o que pode causar um
+sistema mais lento caso tenha diversos Symbols em memória que ficam
+alocados em memória “para sempre”</p>
+</blockquote>
+
+<h3 id="concluso">Conclusão</h3>
+
+<blockquote>
+  <p>Use os saiba usa-los de acordo com cada caso</p>
+</blockquote>
+
 <h2 id="cuidado-com-floats">Cuidado com Floats</h2>
 
 <h2 id="diferenas-entre-proc-e-lambda">Diferenças entre Proc e Lambda</h2>
