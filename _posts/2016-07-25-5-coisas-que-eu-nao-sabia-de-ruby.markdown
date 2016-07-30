@@ -1,0 +1,368 @@
+---
+title:  "5 coisas que eu não sabia de Ruby"
+date:   2016-07-25 21:44:44
+categories: [ruby]
+tags: [ruby]
+---
+
+### Introdução
+
+##  Diferença entre :Symbol e "String"
+
+### :Symbol
+
+```ruby
+a = :xunda
+=> :xunda
+
+b = :xunda
+=> :xunda
+
+a.object_id
+=> 1154268
+
+b.object_id
+=> 1154268
+```
+
+Dois **Symbols** com os mesmos caracteres são um **único objeto**
+
+### "String"
+
+```ruby
+a = "xunda"
+=> "xunda"
+
+b = "xunda"
+=> "xunda"
+
+a.object_id
+=> 6990405680384
+
+b.object_id
+=> 6990405442200
+```
+
+Duas **Strings** mesmo tendo os mesmos caracteres são dois **objetos
+diferentes**
+
+### Garbage Collector
+
+> Falar o que é Garbage Collector
+
+> Explicar que o Symbol apesar de ser mais rápido e ocupar menos espaço em
+memória não é coletado pelo garbage collector o que pode causar um
+sistema mais lento caso tenha diversos Symbols em memória que ficam
+alocados em memória "para sempre"
+
+### Conclusão
+
+> Use os saiba usa-los de acordo com cada caso
+
+##  Cuidado com Floats
+
+### Float
+
+```ruby
+0.0004 - 0.0003 == 0.0001
+=> false
+
+0.0004 - 0.0003
+=> 0.0010000000000000005
+```
+![ish](/images/posts/2016-07-25-5-coisas-que-eu-sabia-de-ruby/ish.jpg)
+
+> Explicar o porque ocorre isso com o Float
+
+### BigDecimal
+
+```ruby
+require 'bigdecimal'
+=> true
+
+num1 = BigDecimal.new("0.0004")
+=> #<BigDecimal:7f6961d47328, '0.4E-3',9(18)>
+
+num2 = BigDecimal.new("0.0003")
+=> #<BigDecimal:7f6961d98237, '0.3E-3',9(18)>
+
+result = num1 - num2
+=> #<BigDecimal:7f6961d83vc3, '0.1E-3',9(18)>
+
+result.to_s('F')
+=> "0.0001"
+```
+
+> Explicar o porque o BigDecimal faz certo e o Float não
+
+### Conclusão
+
+> Pergunte ao cara certo...
+> Aqui posso colocar o video do muleke que não sabia a conta de
+> matemática e comparar com esse contexto falando que o Float não é o
+> professor correto para fazer esse tipo de conta da mesma forma que o
+> muleke perguntou sobre matematica para o professor de ciências
+
+##  Diferenças entre Proc e Lambda
+
+### Primeira diferença
+
+#### Proc
+
+```ruby
+show = proc { |x, y| puts "#{x}, #{y}" }
+=> #<Proc:0x817487288372487@(irb):8>
+
+show.call(1, 2)
+1, 2
+=> nil
+
+show.call(1)
+1,
+=> nil
+
+show.call(1, 2, 3)
+1, 2
+=> nil
+```
+
+> Não valida a quantidade de parametros
+
+
+#### Lambda
+
+```ruby
+show = lambda { |x, y| puts "#{x}, #{y}" }
+=> #<Proc:0x8174872882137@(irb):4 (lambda)>
+
+show.call(1, 2)
+1, 2
+=> nil
+
+show.call(1)
+ArgumentError: wrong number of arguments (1 for 2)
+        from (irb):4:in `block in irb_binding`
+        from (irb):6:in `call`
+        from (irb):6
+        from /home/rd/.rbenv/versions/2.2.2/bin/irb:11:in `<main>`
+
+show.call(1, 2, 3)
+ArgumentError: wrong number of arguments (3 for 2)
+        from (irb):4:in `block in irb_binding`
+        from (irb):7:in `call`
+        from (irb):7
+        from /home/rd/.rbenv/versions/2.2.2/bin/irb:11:in `<main>`
+
+```
+
+> Valida a quantidade de parametros
+
+### Segunda diferença
+
+#### Proc
+
+```ruby
+def proc_stop
+  puts "Cheguei..."
+  proc { puts "Hey"; return; puts "Ho!" }.call
+  puts "Saindo..."
+end
+
+proc_stop # Cheguei...; Hey
+```
+
+> O return dentro de um Proc faz o retorno do método associado
+
+#### Lambda
+
+```ruby
+def lambda_stop
+  puts "Cheguei..."
+  lambda { puts "Hey"; return; puts "Ho!" }.call
+  puts "Saindo..."
+end
+
+lambda_stop # Cheguei...; Hey; Saindo...
+```
+
+> O return dentro de um Lambda retorna apenas o contexto do Lambda
+
+### Conclusão
+
+> Use de acordo com a situação...
+
+
+## Constantes não são constantes
+
+```ruby
+CONSTANT = [:a, :b]
+=> [:a, :b]
+
+CONSTANT << :c
+=> [:a, :b, :c]
+```
+![ish](/images/posts/2016-07-25-5-coisas-que-eu-sabia-de-ruby/whatafuck.jpg)
+
+> Mas eu quero uma constante...
+
+```ruby
+CONSTANT = [:a, :b].freeze
+=> [:a, :b]
+
+CONSTANT << :c
+RuntimeError: can't modify frozen Array
+       from (irb):2
+       from /home/rd/.rbenv/versions/2.2.2/bin/irb:11:in `<main>`
+
+CONSTANT
+=> [:a, :b]
+```
+> Mas...
+
+```ruby
+CONSTANT = "xunda"
+=> "xunda"
+
+CONSTANT = "blah"
+(irb):2: warning: already initialized constant CONSTANT
+(irb):1: warning: previous definition of CONSTANT was here
+=> "blah"
+
+CONSTANT
+=> "blah"
+```
+
+```ruby
+CONSTANT = "xunda".freeze
+=> "xunda"
+
+CONSTANT = "blah"
+(irb):2: warning: already initialized constant CONSTANT
+(irb):1: warning: previous definition of CONSTANT was here
+=> "blah"
+
+CONSTANT
+=> "blah"
+```
+
+## Conclusão
+
+> Eu consigo fazer com que uma constante não seja alterada porém não
+> consigo fazer com que ela não seja reinicializada
+
+! Pesquizar alguma formar de deixa-la inalterada porque o Jonatas falou
+que tem um jeito sim
+
+##  Precedência de operadores booleanos
+
+### and != &&
+
+#### and
+
+```ruby
+do_something = "123"
+=> "123"
+
+do_other_stuff = "abc"
+=> "abc"
+
+if var = do_something and do_other_stuff
+  puts "var is #{var}"
+end
+var is 123
+=> nil
+```
+
+> ( var = do_something ) and do_other_stuff
+
+#### &&
+
+```ruby
+do_something = "123"
+=> "123"
+
+do_other_stuff = "abc"
+=> "abc"
+
+if var = do_something && do_other_stuff
+  puts "var is #{var}"
+end
+var is abc
+=> nil
+```
+
+> var = ( do_something && do_other_stuff )
+
+### or != ||
+
+#### or
+
+> ( var = do_something or do_other_stuff )
+
+#### ||
+
+> var = ( do_something || do_other_stuff )
+
+### Não vou usar, senão...
+
+! Gif deu merda kkk
+
+### Avdi Grimm
+
+> Aqui começo explicando que começei a pesquisar se tinha algum caso bom
+> para usar and e or e achei no blog do Avdi Grimm o post [Using "and"
+> and "or" in Ruby](http://www.virtuouscode.com/2010/08/02/using-and-and-or-in-ruby/)
+> Onde ele explica sobre a precedencia dos operadores booleanos e como
+> usar da forma correta
+
+> Explico sobre como funciona a precedencia e que veio do Perl e talz
+
+### or
+
+```ruby
+class Post
+  def have_posts?
+    false
+  end
+end
+
+post = Post.new
+post.have_posts? or raise "Não tem posts!"
+#=> RuntimeError: Não tem posts!
+
+raise "Não tem posts!" unless post.have_posts?
+#=> RuntimeError: Não tem posts!
+```
+
+### and
+
+```ruby
+class Post
+  def initialize(name)
+    @name = name
+  end
+
+  def publish!
+    puts "Post #{@name} publicado!"
+  end
+end
+
+post = Post.new("5 dicas de Ruby") and post.publish!
+#=> Post 5 dicas de Ruby publicado!
+
+post.publish! if post = Post.new("5 dicas de Ruby")
+#=> Post 5 dicas de Ruby publicado!
+```
+
+**No rails**
+
+```ruby
+post = Post.find_by_name("5 dicas de Ruby") and post.publish!
+#=> Post 5 dicas de Ruby publicado!
+```
+
+## Conclusão
+
+> Use a ferramenta da maneira correta...
+
+## Thanks brow

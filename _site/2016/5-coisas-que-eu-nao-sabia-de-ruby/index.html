@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>5 coisas que eu não sabia de Ruby</title>
+  <meta name="description" content="Web Developer">
+  <meta name="author" content="Wagner Trindade">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Wagner Trindade">
+  <meta name="twitter:description" content="Web Developer">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Wagner Trindade">
+  <meta property="og:description" content="Web Developer">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/images/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-194x194.png" sizes="194x194">
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/images/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/images/favicons/manifest.json">
+  <link rel="shortcut icon" href="/images/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://wagnertrindades.github.io//2016/5-coisas-que-eu-nao-sabia-de-ruby/">
+  <link rel="alternate" type="application/rss+xml" title="Wagner Trindade" href="/feed.xml">
+</head>
+
+
+  <body>
+    <span class="mobile btn-mobile-menu">
+  <i class="icon icon-list btn-mobile-menu__icon"></i>
+  <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+</span>
+
+<header class="panel-cover" style="background-image: url(/images/cover.jpg)">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <a href="/" title="link to home of Wagner Trindade">
+          <img src="/images/profile.jpg" class="user-image" alt="My Profile Photo">
+          <h1 class="panel-cover__title panel-title">Wagner Trindade</h1>
+        </a>
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">Web Developer</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <!--
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="link to Wagner Trindade blog" class="blog-button">Blog</a></li>
+            </ul>
+            -->
+          </nav>
+
+          <nav class="cover-navigation navigation--social">
+            <ul class="navigation">
+
+            
+              <!-- Twitter -->
+              <li class="navigation__item">
+                <a href="http://twitter.com/WagnerTrindades" title="@WagnerTrindades on Twitter" target="_blank">
+                  <i class="icon icon-social-twitter"></i>
+                  <span class="label">Twitter</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- Facebook -->
+              <li class="navigation__item">
+                <a href="http://fb.me/wagner.trindade.9" title="wagner.trindade.9 on Facebook" target="_blank">
+                  <i class="icon icon-social-facebook"></i>
+                  <span class="label">Facebook</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- LinkedIn -->
+              <li class="navigation__item">
+                <a href="https://www.linkedin.com/in/wagner-trindade-sanseverino-2592279a" title="wagner-trindade-sanseverino-2592279a on LinkedIn" target="_blank">
+                  <i class="icon icon-social-linkedin"></i>
+                  <span class="label">LinkedIn</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- GitHub -->
+              <li class="navigation__item">
+                <a href="https://www.github.com/wagnertrindades" title="wagnertrindades on GitHub" target="_blank">
+                  <i class="icon icon-social-github"></i>
+                  <span class="label">GitHub</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- Email -->
+              <li class="navigation__item">
+                <a href="mailto:wtrindades@gmail.com" title="Email wtrindades@gmail.com" target="_blank">
+                  <i class="icon icon-mail"></i>
+                  <span class="label">Email</span>
+                </a>
+              </li>
+            
+
+            <!-- RSS -->
+            <li class="navigation__item">
+              <a href="/feed.xml" title="Subscribe" target="_blank">
+                <i class="icon icon-rss"></i>
+                <span class="label">RSS</span>
+              </a>
+            </li>
+
+            </ul>
+          </nav>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <article class="post-container post-container--single">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="25 Jul 2016" class="post-meta__date date">25 Jul 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#ruby">ruby</a> </span>
+    </div>
+    <h1 class="post-title">5 coisas que eu não sabia de Ruby</h1>
+  </header>
+
+  <section class="post">
+    <h3 id="introduo">Introdução</h3>
+
+<h2 id="diferena-entre-symbol-e-string">Diferença entre :Symbol e “String”</h2>
+
+<h3 id="symbol">:Symbol</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="ss">:xunda</span>
+<span class="o">=&gt;</span> <span class="ss">:xunda</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="ss">:xunda</span>
+<span class="o">=&gt;</span> <span class="ss">:xunda</span>
+
+<span class="n">a</span><span class="p">.</span><span class="nf">object_id</span>
+<span class="o">=&gt;</span> <span class="mi">1154268</span>
+
+<span class="n">b</span><span class="p">.</span><span class="nf">object_id</span>
+<span class="o">=&gt;</span> <span class="mi">1154268</span>
+</code></pre>
+</div>
+
+<p>Dois <strong>Symbols</strong> com os mesmos caracteres são um <strong>único objeto</strong></p>
+
+<h3 id="string">“String”</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="s2">"xunda"</span>
+<span class="o">=&gt;</span> <span class="s2">"xunda"</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="s2">"xunda"</span>
+<span class="o">=&gt;</span> <span class="s2">"xunda"</span>
+
+<span class="n">a</span><span class="p">.</span><span class="nf">object_id</span>
+<span class="o">=&gt;</span> <span class="mi">6990405680384</span>
+
+<span class="n">b</span><span class="p">.</span><span class="nf">object_id</span>
+<span class="o">=&gt;</span> <span class="mi">6990405442200</span>
+</code></pre>
+</div>
+
+<p>Duas <strong>Strings</strong> mesmo tendo os mesmos caracteres são dois <strong>objetos
+diferentes</strong></p>
+
+<h3 id="garbage-collector">Garbage Collector</h3>
+
+<blockquote>
+  <p>Falar o que é Garbage Collector</p>
+</blockquote>
+
+<blockquote>
+  <p>Explicar que o Symbol apesar de ser mais rápido e ocupar menos espaço em
+memória não é coletado pelo garbage collector o que pode causar um
+sistema mais lento caso tenha diversos Symbols em memória que ficam
+alocados em memória “para sempre”</p>
+</blockquote>
+
+<h3 id="concluso">Conclusão</h3>
+
+<blockquote>
+  <p>Use os saiba usa-los de acordo com cada caso</p>
+</blockquote>
+
+<h2 id="cuidado-com-floats">Cuidado com Floats</h2>
+
+<h3 id="float">Float</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="mi">0</span><span class="o">.</span><span class="mo">0004</span> <span class="o">-</span> <span class="mi">0</span><span class="o">.</span><span class="mo">0003</span> <span class="o">==</span> <span class="mi">0</span><span class="o">.</span><span class="mo">0001</span>
+<span class="o">=&gt;</span> <span class="kp">false</span>
+
+<span class="mi">0</span><span class="o">.</span><span class="mo">0004</span> <span class="o">-</span> <span class="mi">0</span><span class="o">.</span><span class="mo">0003</span>
+<span class="o">=&gt;</span> <span class="mi">0</span><span class="o">.</span><span class="mo">0010000000000000005</span>
+</code></pre>
+</div>
+<p><img src="/images/posts/2016-07-25-5-coisas-que-eu-sabia-de-ruby/ish.jpg" alt="ish" /></p>
+
+<blockquote>
+  <p>Explicar o porque ocorre isso com o Float</p>
+</blockquote>
+
+<h3 id="bigdecimal">BigDecimal</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'bigdecimal'</span>
+<span class="o">=&gt;</span> <span class="kp">true</span>
+
+<span class="n">num1</span> <span class="o">=</span> <span class="no">BigDecimal</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"0.0004"</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="c1">#&lt;BigDecimal:7f6961d47328, '0.4E-3',9(18)&gt;</span>
+
+<span class="n">num2</span> <span class="o">=</span> <span class="no">BigDecimal</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"0.0003"</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="c1">#&lt;BigDecimal:7f6961d98237, '0.3E-3',9(18)&gt;</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">-</span> <span class="n">num2</span>
+<span class="o">=&gt;</span> <span class="c1">#&lt;BigDecimal:7f6961d83vc3, '0.1E-3',9(18)&gt;</span>
+
+<span class="n">result</span><span class="p">.</span><span class="nf">to_s</span><span class="p">(</span><span class="s1">'F'</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="s2">"0.0001"</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>Explicar o porque o BigDecimal faz certo e o Float não</p>
+</blockquote>
+
+<h3 id="concluso-1">Conclusão</h3>
+
+<blockquote>
+  <p>Pergunte ao cara certo…
+Aqui posso colocar o video do muleke que não sabia a conta de
+matemática e comparar com esse contexto falando que o Float não é o
+professor correto para fazer esse tipo de conta da mesma forma que o
+muleke perguntou sobre matematica para o professor de ciências</p>
+</blockquote>
+
+<h2 id="diferenas-entre-proc-e-lambda">Diferenças entre Proc e Lambda</h2>
+
+<h3 id="primeira-diferena">Primeira diferença</h3>
+
+<h4 id="proc">Proc</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">show</span> <span class="o">=</span> <span class="nb">proc</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">y</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+<span class="o">=&gt;</span> <span class="c1">#&lt;Proc:0x817487288372487@(irb):8&gt;</span>
+
+<span class="n">show</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="o">=&gt;</span> <span class="kp">nil</span>
+
+<span class="n">show</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="mi">1</span><span class="p">,</span>
+<span class="o">=&gt;</span> <span class="kp">nil</span>
+
+<span class="n">show</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="o">=&gt;</span> <span class="kp">nil</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>Não valida a quantidade de parametros</p>
+</blockquote>
+
+<h4 id="lambda">Lambda</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">show</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">y</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+<span class="o">=&gt;</span> <span class="c1">#&lt;Proc:0x8174872882137@(irb):4 (lambda)&gt;</span>
+
+<span class="n">show</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="o">=&gt;</span> <span class="kp">nil</span>
+
+<span class="n">show</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="no">ArgumentError</span><span class="p">:</span> <span class="n">wrong</span> <span class="n">number</span> <span class="n">of</span> <span class="n">arguments</span> <span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">from</span> <span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">4</span><span class="ss">:in</span> <span class="sb">`block in irb_binding`</span>
+        <span class="n">from</span> <span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">6</span><span class="ss">:in</span> <span class="sb">`call`</span>
+        <span class="n">from</span> <span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">6</span>
+        <span class="n">from</span> <span class="sr">/home/</span><span class="n">rd</span><span class="o">/</span><span class="p">.</span><span class="nf">rbenv</span><span class="o">/</span><span class="n">versions</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">irb</span><span class="p">:</span><span class="mi">11</span><span class="ss">:in</span> <span class="sb">`&lt;main&gt;`</span>
+
+<span class="n">show</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="no">ArgumentError</span><span class="p">:</span> <span class="n">wrong</span> <span class="n">number</span> <span class="n">of</span> <span class="n">arguments</span> <span class="p">(</span><span class="mi">3</span> <span class="k">for</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">from</span> <span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">4</span><span class="ss">:in</span> <span class="sb">`block in irb_binding`</span>
+        <span class="n">from</span> <span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">7</span><span class="ss">:in</span> <span class="sb">`call`</span>
+        <span class="n">from</span> <span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">7</span>
+        <span class="n">from</span> <span class="sr">/home/</span><span class="n">rd</span><span class="o">/</span><span class="p">.</span><span class="nf">rbenv</span><span class="o">/</span><span class="n">versions</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">irb</span><span class="p">:</span><span class="mi">11</span><span class="ss">:in</span> <span class="sb">`&lt;main&gt;`</span>
+
+</code></pre>
+</div>
+
+<blockquote>
+  <p>Valida a quantidade de parametros</p>
+</blockquote>
+
+<h3 id="segunda-diferena">Segunda diferença</h3>
+
+<h4 id="proc-1">Proc</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">proc_stop</span>
+  <span class="nb">puts</span> <span class="s2">"Cheguei..."</span>
+  <span class="nb">proc</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">"Hey"</span><span class="p">;</span> <span class="k">return</span><span class="p">;</span> <span class="nb">puts</span> <span class="s2">"Ho!"</span> <span class="p">}.</span><span class="nf">call</span>
+  <span class="nb">puts</span> <span class="s2">"Saindo..."</span>
+<span class="k">end</span>
+
+<span class="n">proc_stop</span> <span class="c1"># Cheguei...; Hey</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>O return dentro de um Proc faz o retorno do método associado</p>
+</blockquote>
+
+<h4 id="lambda-1">Lambda</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">lambda_stop</span>
+  <span class="nb">puts</span> <span class="s2">"Cheguei..."</span>
+  <span class="nb">lambda</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">"Hey"</span><span class="p">;</span> <span class="k">return</span><span class="p">;</span> <span class="nb">puts</span> <span class="s2">"Ho!"</span> <span class="p">}.</span><span class="nf">call</span>
+  <span class="nb">puts</span> <span class="s2">"Saindo..."</span>
+<span class="k">end</span>
+
+<span class="n">lambda_stop</span> <span class="c1"># Cheguei...; Hey; Saindo...</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>O return dentro de um Lambda retorna apenas o contexto do Lambda</p>
+</blockquote>
+
+<h3 id="concluso-2">Conclusão</h3>
+
+<blockquote>
+  <p>Use de acordo com a situação…</p>
+</blockquote>
+
+<h2 id="constantes-no-so-constantes">Constantes não são constantes</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="no">CONSTANT</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">]</span>
+<span class="o">=&gt;</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">]</span>
+
+<span class="no">CONSTANT</span> <span class="o">&lt;&lt;</span> <span class="ss">:c</span>
+<span class="o">=&gt;</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">,</span> <span class="ss">:c</span><span class="p">]</span>
+</code></pre>
+</div>
+<p><img src="/images/posts/2016-07-25-5-coisas-que-eu-sabia-de-ruby/whatafuck.jpg" alt="ish" /></p>
+
+<blockquote>
+  <p>Mas eu quero uma constante…</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="no">CONSTANT</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">].</span><span class="nf">freeze</span>
+<span class="o">=&gt;</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">]</span>
+
+<span class="no">CONSTANT</span> <span class="o">&lt;&lt;</span> <span class="ss">:c</span>
+<span class="no">RuntimeError</span><span class="p">:</span> <span class="n">can</span><span class="err">'</span><span class="n">t</span> <span class="n">modify</span> <span class="n">frozen</span> <span class="no">Array</span>
+       <span class="n">from</span> <span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">2</span>
+       <span class="n">from</span> <span class="sr">/home/</span><span class="n">rd</span><span class="o">/</span><span class="p">.</span><span class="nf">rbenv</span><span class="o">/</span><span class="n">versions</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">irb</span><span class="p">:</span><span class="mi">11</span><span class="ss">:in</span> <span class="sb">`&lt;main&gt;`</span>
+
+<span class="no">CONSTANT</span>
+<span class="o">=&gt;</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">]</span>
+</code></pre>
+</div>
+<blockquote>
+  <p>Mas…</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="no">CONSTANT</span> <span class="o">=</span> <span class="s2">"xunda"</span>
+<span class="o">=&gt;</span> <span class="s2">"xunda"</span>
+
+<span class="no">CONSTANT</span> <span class="o">=</span> <span class="s2">"blah"</span>
+<span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">2</span><span class="p">:</span> <span class="ss">warning: </span><span class="n">already</span> <span class="n">initialized</span> <span class="n">constant</span> <span class="no">CONSTANT</span>
+<span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">1</span><span class="p">:</span> <span class="ss">warning: </span><span class="n">previous</span> <span class="n">definition</span> <span class="n">of</span> <span class="no">CONSTANT</span> <span class="n">was</span> <span class="n">here</span>
+<span class="o">=&gt;</span> <span class="s2">"blah"</span>
+
+<span class="no">CONSTANT</span>
+<span class="o">=&gt;</span> <span class="s2">"blah"</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="no">CONSTANT</span> <span class="o">=</span> <span class="s2">"xunda"</span><span class="p">.</span><span class="nf">freeze</span>
+<span class="o">=&gt;</span> <span class="s2">"xunda"</span>
+
+<span class="no">CONSTANT</span> <span class="o">=</span> <span class="s2">"blah"</span>
+<span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">2</span><span class="p">:</span> <span class="ss">warning: </span><span class="n">already</span> <span class="n">initialized</span> <span class="n">constant</span> <span class="no">CONSTANT</span>
+<span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">1</span><span class="p">:</span> <span class="ss">warning: </span><span class="n">previous</span> <span class="n">definition</span> <span class="n">of</span> <span class="no">CONSTANT</span> <span class="n">was</span> <span class="n">here</span>
+<span class="o">=&gt;</span> <span class="s2">"blah"</span>
+
+<span class="no">CONSTANT</span>
+<span class="o">=&gt;</span> <span class="s2">"blah"</span>
+</code></pre>
+</div>
+
+<h2 id="concluso-3">Conclusão</h2>
+
+<blockquote>
+  <p>Eu consigo fazer com que uma constante não seja alterada porém não
+consigo fazer com que ela não seja reinicializada</p>
+</blockquote>
+
+<p>! Pesquizar alguma formar de deixa-la inalterada porque o Jonatas falou
+que tem um jeito sim</p>
+
+<h2 id="precedncia-de-operadores-booleanos">Precedência de operadores booleanos</h2>
+
+<h3 id="and--">and != &amp;&amp;</h3>
+
+<h4 id="and">and</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">do_something</span> <span class="o">=</span> <span class="s2">"123"</span>
+<span class="o">=&gt;</span> <span class="s2">"123"</span>
+
+<span class="n">do_other_stuff</span> <span class="o">=</span> <span class="s2">"abc"</span>
+<span class="o">=&gt;</span> <span class="s2">"abc"</span>
+
+<span class="k">if</span> <span class="n">var</span> <span class="o">=</span> <span class="n">do_something</span> <span class="n">and</span> <span class="n">do_other_stuff</span>
+  <span class="nb">puts</span> <span class="s2">"var is </span><span class="si">#{</span><span class="n">var</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">var</span> <span class="n">is</span> <span class="mi">123</span>
+<span class="o">=&gt;</span> <span class="kp">nil</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>( var = do_something ) and do_other_stuff</p>
+</blockquote>
+
+<h4 id="section">&amp;&amp;</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">do_something</span> <span class="o">=</span> <span class="s2">"123"</span>
+<span class="o">=&gt;</span> <span class="s2">"123"</span>
+
+<span class="n">do_other_stuff</span> <span class="o">=</span> <span class="s2">"abc"</span>
+<span class="o">=&gt;</span> <span class="s2">"abc"</span>
+
+<span class="k">if</span> <span class="n">var</span> <span class="o">=</span> <span class="n">do_something</span> <span class="o">&amp;&amp;</span> <span class="n">do_other_stuff</span>
+  <span class="nb">puts</span> <span class="s2">"var is </span><span class="si">#{</span><span class="n">var</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">var</span> <span class="n">is</span> <span class="n">abc</span>
+<span class="o">=&gt;</span> <span class="kp">nil</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>var = ( do_something &amp;&amp; do_other_stuff )</p>
+</blockquote>
+
+<h3 id="or--">or != ||</h3>
+
+<h4 id="or">or</h4>
+
+<blockquote>
+  <p>( var = do_something or do_other_stuff )</p>
+</blockquote>
+
+<h4 id="section-1">||</h4>
+
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>var = ( do_something</td>
+        <td> </td>
+        <td>do_other_stuff )</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h3 id="no-vou-usar-seno">Não vou usar, senão…</h3>
+
+<p>! Gif deu merda kkk</p>
+
+<h3 id="avdi-grimm">Avdi Grimm</h3>
+
+<blockquote>
+  <p>Aqui começo explicando que começei a pesquisar se tinha algum caso bom
+para usar and e or e achei no blog do Avdi Grimm o post <a href="http://www.virtuouscode.com/2010/08/02/using-and-and-or-in-ruby/">Using “and”
+and “or” in Ruby</a>
+Onde ele explica sobre a precedencia dos operadores booleanos e como
+usar da forma correta</p>
+</blockquote>
+
+<blockquote>
+  <p>Explico sobre como funciona a precedencia e que veio do Perl e talz</p>
+</blockquote>
+
+<h3 id="or-1">or</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Post</span>
+  <span class="k">def</span> <span class="nf">have_posts?</span>
+    <span class="kp">false</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">post</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">post</span><span class="p">.</span><span class="nf">have_posts?</span> <span class="n">or</span> <span class="k">raise</span> <span class="s2">"Não tem posts!"</span>
+<span class="c1">#=&gt; RuntimeError: Não tem posts!</span>
+
+<span class="k">raise</span> <span class="s2">"Não tem posts!"</span> <span class="k">unless</span> <span class="n">post</span><span class="p">.</span><span class="nf">have_posts?</span>
+<span class="c1">#=&gt; RuntimeError: Não tem posts!</span>
+</code></pre>
+</div>
+
+<h3 id="and-1">and</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Post</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">publish!</span>
+    <span class="nb">puts</span> <span class="s2">"Post </span><span class="si">#{</span><span class="vi">@name</span><span class="si">}</span><span class="s2"> publicado!"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">post</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"5 dicas de Ruby"</span><span class="p">)</span> <span class="n">and</span> <span class="n">post</span><span class="p">.</span><span class="nf">publish!</span>
+<span class="c1">#=&gt; Post 5 dicas de Ruby publicado!</span>
+
+<span class="n">post</span><span class="p">.</span><span class="nf">publish!</span> <span class="k">if</span> <span class="n">post</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"5 dicas de Ruby"</span><span class="p">)</span>
+<span class="c1">#=&gt; Post 5 dicas de Ruby publicado!</span>
+</code></pre>
+</div>
+
+<p><strong>No rails</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">post</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">find_by_name</span><span class="p">(</span><span class="s2">"5 dicas de Ruby"</span><span class="p">)</span> <span class="n">and</span> <span class="n">post</span><span class="p">.</span><span class="nf">publish!</span>
+<span class="c1">#=&gt; Post 5 dicas de Ruby publicado!</span>
+</code></pre>
+</div>
+
+<h2 id="concluso-4">Conclusão</h2>
+
+<blockquote>
+  <p>Use a ferramenta da maneira correta…</p>
+</blockquote>
+
+<h2 id="thanks-brow">Thanks brow</h2>
+
+  </section>
+  
+</article>
+
+
+
+      </div>
+
+      <footer class="footer">
+  <span class="footer__copyright">&copy; 2016 Wagner Trindade. All rights reserved.</span>
+</footer> 
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+    </div>
+  </body>
+</html>
