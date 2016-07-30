@@ -255,3 +255,114 @@ que tem um jeito sim
 
 ##  Precedência de operadores booleanos
 
+### and != &&
+
+#### and
+
+```ruby
+do_something = "123"
+=> "123"
+
+do_other_stuff = "abc"
+=> "abc"
+
+if var = do_something and do_other_stuff
+  puts "var is #{var}"
+end
+var is 123
+=> nil
+```
+
+> ( var = do_something ) and do_other_stuff
+
+#### &&
+
+```ruby
+do_something = "123"
+=> "123"
+
+do_other_stuff = "abc"
+=> "abc"
+
+if var = do_something && do_other_stuff
+  puts "var is #{var}"
+end
+var is abc
+=> nil
+```
+
+> var = ( do_something && do_other_stuff )
+
+### or != ||
+
+#### or
+
+> ( var = do_something or do_other_stuff )
+
+#### ||
+
+> var = ( do_something || do_other_stuff )
+
+### Não vou usar, senão...
+
+! Gif deu merda kkk
+
+### Avdi Grimm
+
+> Aqui começo explicando que começei a pesquisar se tinha algum caso bom
+> para usar and e or e achei no blog do Avdi Grimm o post [Using "and"
+> and "or" in Ruby](http://www.virtuouscode.com/2010/08/02/using-and-and-or-in-ruby/)
+> Onde ele explica sobre a precedencia dos operadores booleanos e como
+> usar da forma correta
+
+> Explico sobre como funciona a precedencia e que veio do Perl e talz
+
+### or
+
+```ruby
+class Post
+  def have_posts?
+    false
+  end
+end
+
+post = Post.new
+post.have_posts? or raise "Não tem posts!"
+#=> RuntimeError: Não tem posts!
+
+raise "Não tem posts!" unless post.have_posts?
+#=> RuntimeError: Não tem posts!
+```
+
+### and
+
+```ruby
+class Post
+  def initialize(name)
+    @name = name
+  end
+
+  def publish!
+    puts "Post #{@name} publicado!"
+  end
+end
+
+post = Post.new("5 dicas de Ruby") and post.publish!
+#=> Post 5 dicas de Ruby publicado!
+
+post.publish! if post = Post.new("5 dicas de Ruby")
+#=> Post 5 dicas de Ruby publicado!
+```
+
+**No rails**
+
+```ruby
+post = Post.find_by_name("5 dicas de Ruby") and post.publish!
+#=> Post 5 dicas de Ruby publicado!
+```
+
+## Conclusão
+
+> Use a ferramenta da maneira correta...
+
+## Thanks brow
