@@ -92,6 +92,8 @@ memória
 
 ### Garbage Collector
 
+https://www.infoq.com/br/presentations/entendendo-garbage-collector-ruby
+
 > Falar o que é Garbage Collector
 
 > Explicar que o Symbol apesar de ser mais rápido e ocupar menos espaço em

@@ -5,8 +5,8 @@
     <description>Web Developer</description>
     <link>http://wagnertrindades.github.io//</link>
     <atom:link href="http://wagnertrindades.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 31 Jul 2016 17:26:24 +0000</pubDate>
-    <lastBuildDate>Sun, 31 Jul 2016 17:26:24 +0000</lastBuildDate>
+    <pubDate>Sun, 31 Jul 2016 17:56:31 +0000</pubDate>
+    <lastBuildDate>Sun, 31 Jul 2016 17:56:31 +0000</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -98,6 +98,8 @@ sempre???&lt;/p&gt;
 memória&lt;/p&gt;
 
 &lt;h3 id=&quot;garbage-collector&quot;&gt;Garbage Collector&lt;/h3&gt;
+
+&lt;p&gt;https://www.infoq.com/br/presentations/entendendo-garbage-collector-ruby&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Falar o que é Garbage Collector&lt;/p&gt;
