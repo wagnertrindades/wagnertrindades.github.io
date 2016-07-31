@@ -167,7 +167,19 @@
 
 <h2 id="diferena-entre-symbol-e-string">Diferença entre :Symbol e “String”</h2>
 
-<h3 id="symbol">:Symbol</h3>
+<p>A primeira coisa que me deixou bem curioso e que começei a pesquisar um
+pouco mais sobre foi a questão de termos o <strong>Symbol</strong> e a <strong>String</strong> que
+teoricamente são muito parecidos.</p>
+
+<p>Então quando usar um ou outro?
+Sempre utilizei mais Strings no geral
+porém será que tem algum momento que seria melhor eu ter utilizado um
+Symbol?
+Realmente a uma diferença dos dois ou é somente a sintaxe?</p>
+
+<p>Bom, vamos ver com os exemplos abaixo:</p>
+
+<p><strong>:Symbol</strong></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="ss">:xunda</span>
 <span class="o">=&gt;</span> <span class="ss">:xunda</span>
@@ -183,9 +195,14 @@
 </code></pre>
 </div>
 
-<p>Dois <strong>Symbols</strong> com os mesmos caracteres são um <strong>único objeto</strong></p>
+<p>Como pode ver acima através do método <code class="highlighter-rouge">object_id</code> conseguimos saber
+exatamente a posição em memória de cada objeto, no caso as
+variáveis <em>a</em> e <em>b</em> que são os symbols com os mesmos caracteres.</p>
 
-<h3 id="string">“String”</h3>
+<p>Então concluimos que <strong>Symbols</strong> com os mesmos caracteres mesmo que em diferentes variáveis
+ou qualquer outro lugar no código são um <strong>único objeto</strong></p>
+
+<p><strong>“String”</strong></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="s2">"xunda"</span>
 <span class="o">=&gt;</span> <span class="s2">"xunda"</span>
@@ -201,8 +218,36 @@
 </code></pre>
 </div>
 
-<p>Duas <strong>Strings</strong> mesmo tendo os mesmos caracteres são dois <strong>objetos
+<p>Já com as strings o resultado não é o mesmo, vemos que os números de
+onde foi alocado o espaço em memória para cada string são diferentes
+logo não se trata do mesmo objeto.</p>
+
+<p>Então duas <strong>Strings</strong> mesmo tendo os mesmos caracteres são dois <strong>objetos
 diferentes</strong></p>
+
+<h4 id="legal-mas-o-que-isso-muda-na-minha-vida-kkk">Legal, mas o que isso muda na minha vida? kkk</h4>
+
+<p>Bom sabendo sobre essa diferença conseguimos concluir que toda
+vez que criar uma nova string embora seja os mesmos caracteres estará
+instanciando um novo objeto em memória e ocupando mais um novo espaço em
+memória.</p>
+
+<p>E quando tiver trabalhando com symbols caso seja os mesmos caracteres
+você esta economizando espaço em memória já que não instancia o objeto
+novamente apenas utiliza o mesmo objeto já instanciado em memória
+então não consome mais memória.</p>
+
+<p>Então vou utilizar somente os maravilhos <strong>Symbols</strong> e ser feliz para
+sempre???</p>
+
+<blockquote>
+  <p>Gif Jim Carrey?</p>
+</blockquote>
+
+<p>Humm, acho que não…</p>
+
+<p>Vamos ver abaixo um pouco mais sobre essa questão de armazenamento em
+memória</p>
 
 <h3 id="garbage-collector">Garbage Collector</h3>
 

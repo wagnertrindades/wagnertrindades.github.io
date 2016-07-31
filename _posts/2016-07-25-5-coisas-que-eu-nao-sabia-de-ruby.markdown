@@ -9,7 +9,19 @@ tags: [ruby]
 
 ##  Diferença entre :Symbol e "String"
 
-### :Symbol
+A primeira coisa que me deixou bem curioso e que começei a pesquisar um
+pouco mais sobre foi a questão de termos o **Symbol** e a **String** que
+teoricamente são muito parecidos.
+
+Então quando usar um ou outro?
+Sempre utilizei mais Strings no geral
+porém será que tem algum momento que seria melhor eu ter utilizado um
+Symbol?
+Realmente a uma diferença dos dois ou é somente a sintaxe?
+
+Bom, vamos ver com os exemplos abaixo:
+
+**:Symbol**
 
 ```ruby
 a = :xunda
@@ -25,9 +37,15 @@ b.object_id
 => 1154268
 ```
 
-Dois **Symbols** com os mesmos caracteres são um **único objeto**
+Como pode ver acima através do método `object_id` conseguimos saber
+exatamente a posição em memória de cada objeto, no caso as
+variáveis *a* e *b* que são os symbols com os mesmos caracteres.
 
-### "String"
+Então concluimos que **Symbols** com os mesmos caracteres mesmo que em diferentes variáveis
+ou qualquer outro lugar no código são um **único objeto**
+
+
+**"String"**
 
 ```ruby
 a = "xunda"
@@ -43,8 +61,34 @@ b.object_id
 => 6990405442200
 ```
 
-Duas **Strings** mesmo tendo os mesmos caracteres são dois **objetos
+Já com as strings o resultado não é o mesmo, vemos que os números de
+onde foi alocado o espaço em memória para cada string são diferentes
+logo não se trata do mesmo objeto.
+
+Então duas **Strings** mesmo tendo os mesmos caracteres são dois **objetos
 diferentes**
+
+#### Legal, mas o que isso muda na minha vida? kkk
+
+Bom sabendo sobre essa diferença conseguimos concluir que toda
+vez que criar uma nova string embora seja os mesmos caracteres estará
+instanciando um novo objeto em memória e ocupando mais um novo espaço em
+memória.
+
+E quando tiver trabalhando com symbols caso seja os mesmos caracteres
+você esta economizando espaço em memória já que não instancia o objeto
+novamente apenas utiliza o mesmo objeto já instanciado em memória
+então não consome mais memória.
+
+Então vou utilizar somente os maravilhos **Symbols** e ser feliz para
+sempre???
+
+> Gif Jim Carrey?
+
+Humm, acho que não...
+
+Vamos ver abaixo um pouco mais sobre essa questão de armazenamento em
+memória
 
 ### Garbage Collector
 

@@ -5,8 +5,8 @@
     <description>Web Developer</description>
     <link>http://wagnertrindades.github.io//</link>
     <atom:link href="http://wagnertrindades.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 30 Jul 2016 20:39:38 +0000</pubDate>
-    <lastBuildDate>Sat, 30 Jul 2016 20:39:38 +0000</lastBuildDate>
+    <pubDate>Sun, 31 Jul 2016 17:26:24 +0000</pubDate>
+    <lastBuildDate>Sun, 31 Jul 2016 17:26:24 +0000</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -15,7 +15,19 @@
 
 &lt;h2 id=&quot;diferena-entre-symbol-e-string&quot;&gt;Diferença entre :Symbol e “String”&lt;/h2&gt;
 
-&lt;h3 id=&quot;symbol&quot;&gt;:Symbol&lt;/h3&gt;
+&lt;p&gt;A primeira coisa que me deixou bem curioso e que começei a pesquisar um
+pouco mais sobre foi a questão de termos o &lt;strong&gt;Symbol&lt;/strong&gt; e a &lt;strong&gt;String&lt;/strong&gt; que
+teoricamente são muito parecidos.&lt;/p&gt;
+
+&lt;p&gt;Então quando usar um ou outro?
+Sempre utilizei mais Strings no geral
+porém será que tem algum momento que seria melhor eu ter utilizado um
+Symbol?
+Realmente a uma diferença dos dois ou é somente a sintaxe?&lt;/p&gt;
+
+&lt;p&gt;Bom, vamos ver com os exemplos abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;:Symbol&lt;/strong&gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:xunda&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:xunda&lt;/span&gt;
@@ -31,9 +43,14 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Dois &lt;strong&gt;Symbols&lt;/strong&gt; com os mesmos caracteres são um &lt;strong&gt;único objeto&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Como pode ver acima através do método &lt;code class=&quot;highlighter-rouge&quot;&gt;object_id&lt;/code&gt; conseguimos saber
+exatamente a posição em memória de cada objeto, no caso as
+variáveis &lt;em&gt;a&lt;/em&gt; e &lt;em&gt;b&lt;/em&gt; que são os symbols com os mesmos caracteres.&lt;/p&gt;
 
-&lt;h3 id=&quot;string&quot;&gt;“String”&lt;/h3&gt;
+&lt;p&gt;Então concluimos que &lt;strong&gt;Symbols&lt;/strong&gt; com os mesmos caracteres mesmo que em diferentes variáveis
+ou qualquer outro lugar no código são um &lt;strong&gt;único objeto&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;“String”&lt;/strong&gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;xunda&quot;&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;xunda&quot;&lt;/span&gt;
@@ -49,8 +66,36 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Duas &lt;strong&gt;Strings&lt;/strong&gt; mesmo tendo os mesmos caracteres são dois &lt;strong&gt;objetos
+&lt;p&gt;Já com as strings o resultado não é o mesmo, vemos que os números de
+onde foi alocado o espaço em memória para cada string são diferentes
+logo não se trata do mesmo objeto.&lt;/p&gt;
+
+&lt;p&gt;Então duas &lt;strong&gt;Strings&lt;/strong&gt; mesmo tendo os mesmos caracteres são dois &lt;strong&gt;objetos
 diferentes&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;legal-mas-o-que-isso-muda-na-minha-vida-kkk&quot;&gt;Legal, mas o que isso muda na minha vida? kkk&lt;/h4&gt;
+
+&lt;p&gt;Bom sabendo sobre essa diferença conseguimos concluir que toda
+vez que criar uma nova string embora seja os mesmos caracteres estará
+instanciando um novo objeto em memória e ocupando mais um novo espaço em
+memória.&lt;/p&gt;
+
+&lt;p&gt;E quando tiver trabalhando com symbols caso seja os mesmos caracteres
+você esta economizando espaço em memória já que não instancia o objeto
+novamente apenas utiliza o mesmo objeto já instanciado em memória
+então não consome mais memória.&lt;/p&gt;
+
+&lt;p&gt;Então vou utilizar somente os maravilhos &lt;strong&gt;Symbols&lt;/strong&gt; e ser feliz para
+sempre???&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Gif Jim Carrey?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Humm, acho que não…&lt;/p&gt;
+
+&lt;p&gt;Vamos ver abaixo um pouco mais sobre essa questão de armazenamento em
+memória&lt;/p&gt;
 
 &lt;h3 id=&quot;garbage-collector&quot;&gt;Garbage Collector&lt;/h3&gt;
 
