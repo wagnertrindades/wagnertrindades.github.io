@@ -5,8 +5,8 @@
     <description>Web Developer</description>
     <link>http://wagnertrindades.github.io//</link>
     <atom:link href="http://wagnertrindades.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 31 Jul 2016 17:56:31 +0000</pubDate>
-    <lastBuildDate>Sun, 31 Jul 2016 17:56:31 +0000</lastBuildDate>
+    <pubDate>Tue, 02 Aug 2016 01:20:19 +0000</pubDate>
+    <lastBuildDate>Tue, 02 Aug 2016 01:20:19 +0000</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -120,7 +120,10 @@ alocados em memória “para sempre”&lt;/p&gt;
 
 &lt;h2 id=&quot;cuidado-com-floats&quot;&gt;Cuidado com Floats&lt;/h2&gt;
 
-&lt;h3 id=&quot;float&quot;&gt;Float&lt;/h3&gt;
+&lt;p&gt;Uma coisa que no próprio livro alertou e que até então num tinha visto
+que acontecia esse tipo de coisa com o Float.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Float&lt;/strong&gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;0004&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;0003&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;0001&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
@@ -129,13 +132,32 @@ alocados em memória “para sempre”&lt;/p&gt;
 &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;0010000000000000005&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+&lt;hr /&gt;
 &lt;p&gt;&lt;img src=&quot;/images/posts/2016-07-25-5-coisas-que-eu-sabia-de-ruby/ish.jpg&quot; alt=&quot;ish&quot; /&gt;&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Explicar o porque ocorre isso com o Float&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;WTF!?!?&lt;/p&gt;
 
-&lt;h3 id=&quot;bigdecimal&quot;&gt;BigDecimal&lt;/h3&gt;
+&lt;hr /&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;Quando vi até lembrei desse
+video que já ficou famoso a algum tempo atrás kkk&lt;/p&gt;
+
+&lt;iframe width=&quot;420&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/0MR_Jw0QVQ4&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;Isso ocorre porque a representação de números reais usada é o IEEE-754,
+a forma padrão de representar números reais em binários, que não é
+somente utilizada pelo Ruby, mas também por C, Java e Javascript. Porém,
+este padrão possui um problema perigoso de arredondamento causando esse
+tipo de resultado.&lt;/p&gt;
+
+&lt;p&gt;Muitas pessoas por desconhecerem esse problema podem usar floats para valores
+financeiros, o que certamente vai ocosionar vários desses erros.
+Para isso, usa-se a classe BigDecimal, do conjunto de bibliotecas padrão
+do Ruby.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;BigDecimal&lt;/strong&gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;bigdecimal&#39;&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
@@ -154,19 +176,25 @@ alocados em memória “para sempre”&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Explicar o porque o BigDecimal faz certo e o Float não&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Apesar de ser muito mais lenta que floats, eles são precisos e
+se tratando de cálculos financeiros, performance na maioria dos casos
+não é um problema, se comparado com aplicações científicas.&lt;/p&gt;
 
 &lt;h3 id=&quot;concluso-1&quot;&gt;Conclusão&lt;/h3&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Pergunte ao cara certo…
-Aqui posso colocar o video do muleke que não sabia a conta de
-matemática e comparar com esse contexto falando que o Float não é o
-professor correto para fazer esse tipo de conta da mesma forma que o
-muleke perguntou sobre matematica para o professor de ciências&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Como visto no video o muleke errando todas as contas de matemática rsrs
+E quando perguntam para ele…
+Quem te ensinou?…
+Meu professor de &lt;strong&gt;ciências&lt;/strong&gt;…&lt;/p&gt;
+
+&lt;p&gt;Ai está o erro rsrs, sempre pergunte para o professor certo…&lt;/p&gt;
+
+&lt;p&gt;Se vai trabalhar com números com poucas casas decimais e não é
+necessário tanta precisão com certeza é melhor utilizar os Floats mesmo
+assim consegue ter mais performace e é mais comum a utilização. Mas caso
+for trabalhar com cálculos financeiros ou caso precise de uma boa
+precisão com números de várias casas decimais  com certeza teras que utlizar
+BigDecimal.&lt;/p&gt;
 
 &lt;h2 id=&quot;diferenas-entre-proc-e-lambda&quot;&gt;Diferenças entre Proc e Lambda&lt;/h2&gt;
 

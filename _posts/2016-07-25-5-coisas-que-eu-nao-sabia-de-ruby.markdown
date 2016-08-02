@@ -107,7 +107,10 @@ alocados em memória "para sempre"
 
 ##  Cuidado com Floats
 
-### Float
+Uma coisa que no próprio livro alertou e que até então num tinha visto
+que acontecia esse tipo de coisa com o Float.
+
+**Float**
 
 ```ruby
 0.0004 - 0.0003 == 0.0001
@@ -116,11 +119,32 @@ alocados em memória "para sempre"
 0.0004 - 0.0003
 => 0.0010000000000000005
 ```
+-------------------------------------------------------------------
 ![ish](/images/posts/2016-07-25-5-coisas-que-eu-sabia-de-ruby/ish.jpg)
 
-> Explicar o porque ocorre isso com o Float
+WTF!?!?
 
-### BigDecimal
+-------------------------------------------------------------------
+
+-------------------------------------------------------------------
+Quando vi até lembrei desse
+video que já ficou famoso a algum tempo atrás kkk
+
+<iframe width="420" height="315" src="https://www.youtube.com/embed/0MR_Jw0QVQ4" frameborder="0" allowfullscreen></iframe>
+-------------------------------------------------------------------
+
+Isso ocorre porque a representação de números reais usada é o IEEE-754,
+a forma padrão de representar números reais em binários, que não é
+somente utilizada pelo Ruby, mas também por C, Java e Javascript. Porém,
+este padrão possui um problema perigoso de arredondamento causando esse
+tipo de resultado.
+
+Muitas pessoas por desconhecerem esse problema podem usar floats para valores
+financeiros, o que certamente vai ocosionar vários desses erros.
+Para isso, usa-se a classe BigDecimal, do conjunto de bibliotecas padrão
+do Ruby.
+
+**BigDecimal**
 
 ```ruby
 require 'bigdecimal'
@@ -139,15 +163,25 @@ result.to_s('F')
 => "0.0001"
 ```
 
-> Explicar o porque o BigDecimal faz certo e o Float não
+Apesar de ser muito mais lenta que floats, eles são precisos e
+se tratando de cálculos financeiros, performance na maioria dos casos
+não é um problema, se comparado com aplicações científicas.
 
 ### Conclusão
 
-> Pergunte ao cara certo...
-> Aqui posso colocar o video do muleke que não sabia a conta de
-> matemática e comparar com esse contexto falando que o Float não é o
-> professor correto para fazer esse tipo de conta da mesma forma que o
-> muleke perguntou sobre matematica para o professor de ciências
+Como visto no video o muleke errando todas as contas de matemática rsrs
+E quando perguntam para ele...
+Quem te ensinou?...
+Meu professor de **ciências**...
+
+Ai está o erro rsrs, sempre pergunte para o professor certo...
+
+Se vai trabalhar com números com poucas casas decimais e não é
+necessário tanta precisão com certeza é melhor utilizar os Floats mesmo
+assim consegue ter mais performace e é mais comum a utilização. Mas caso
+for trabalhar com cálculos financeiros ou caso precise de uma boa
+precisão com números de várias casas decimais  com certeza teras que utlizar
+BigDecimal.
 
 ##  Diferenças entre Proc e Lambda
 
