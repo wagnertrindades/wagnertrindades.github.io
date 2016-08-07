@@ -293,6 +293,9 @@ cada um de acordo com a necessidade do nosso código.
 
 ## Constantes não são constantes
 
+Quando começei a ver sobre as constantes no Ruby que tinha a intenção de
+realmente não ser alterada e me deparei com isto:
+
 ```ruby
 CONSTANT = [:a, :b]
 => [:a, :b]
@@ -300,9 +303,15 @@ CONSTANT = [:a, :b]
 CONSTANT << :c
 => [:a, :b, :c]
 ```
+Bom na verdade mesmo definindo como uma constante eu posso altera-la a
+qualquer momento assim como uma váriavel, minha primeira reação quanto a
+isso foi esta...
+
 ![ish](/images/posts/2016-07-25-5-coisas-que-eu-sabia-de-ruby/whatafuck.jpg)
 
-> Mas eu quero uma constante...
+Com um pouco de curiosidade para saber se de alguma forma eu poderia
+fazer com o que a constante não pudesse ser alterada. Tentei fazer isso
+dessa forma...
 
 ```ruby
 CONSTANT = [:a, :b].freeze
@@ -316,7 +325,16 @@ RuntimeError: can't modify frozen Array
 CONSTANT
 => [:a, :b]
 ```
-> Mas...
+
+E dessa forma com o método `freeze` eu não posso alterar nesse caso o
+array colando mais valores nele e tudo mais...
+
+Achei que tinha descoberto como realmente ter uma constante que nunca
+poderá ser mudada rsrs
+
+Mas ao fazer mais experimentos, consegui fazer isso...
+
+Aqui sem o freeze:
 
 ```ruby
 CONSTANT = "xunda"
@@ -331,6 +349,8 @@ CONSTANT
 => "blah"
 ```
 
+E com o freeze:
+
 ```ruby
 CONSTANT = "xunda".freeze
 => "xunda"
@@ -344,7 +364,18 @@ CONSTANT
 => "blah"
 ```
 
+O que na verdade quando reiniciamos a constante ela até avisa que você
+está redefinindo uma constante mas muda o valor da mesma forma com
+freeze ou sem freeze nesse caso o comportamento é o mesmo.
+
 ## Conclusão
+
+O Ruby não o proibe de modificar as constantes dependendo do tipo do
+objeto ele te avisa que está modificando uma constante porém deixa livre
+para muda-la.
+
+Ele trata essa questão muito mais na parte conceitual mesmo do que até
+na pratica.
 
 > Eu consigo fazer com que uma constante não seja alterada porém não
 > consigo fazer com que ela não seja reinicializada

@@ -455,6 +455,9 @@ cada um de acordo com a necessidade do nosso código.</p>
 
 <h2 id="constantes-no-so-constantes">Constantes não são constantes</h2>
 
+<p>Quando começei a ver sobre as constantes no Ruby que tinha a intenção de
+realmente não ser alterada e me deparei com isto:</p>
+
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="no">CONSTANT</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">]</span>
 <span class="o">=&gt;</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">]</span>
 
@@ -462,11 +465,15 @@ cada um de acordo com a necessidade do nosso código.</p>
 <span class="o">=&gt;</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">,</span> <span class="ss">:c</span><span class="p">]</span>
 </code></pre>
 </div>
+<p>Bom na verdade mesmo definindo como uma constante eu posso altera-la a
+qualquer momento assim como uma váriavel, minha primeira reação quanto a
+isso foi esta…</p>
+
 <p><img src="/images/posts/2016-07-25-5-coisas-que-eu-sabia-de-ruby/whatafuck.jpg" alt="ish" /></p>
 
-<blockquote>
-  <p>Mas eu quero uma constante…</p>
-</blockquote>
+<p>Com um pouco de curiosidade para saber se de alguma forma eu poderia
+fazer com o que a constante não pudesse ser alterada. Tentei fazer isso
+dessa forma…</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="no">CONSTANT</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">].</span><span class="nf">freeze</span>
 <span class="o">=&gt;</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">]</span>
@@ -480,9 +487,16 @@ cada um de acordo com a necessidade do nosso código.</p>
 <span class="o">=&gt;</span> <span class="p">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">]</span>
 </code></pre>
 </div>
-<blockquote>
-  <p>Mas…</p>
-</blockquote>
+
+<p>E dessa forma com o método <code class="highlighter-rouge">freeze</code> eu não posso alterar nesse caso o
+array colando mais valores nele e tudo mais…</p>
+
+<p>Achei que tinha descoberto como realmente ter uma constante que nunca
+poderá ser mudada rsrs</p>
+
+<p>Mas ao fazer mais experimentos, consegui fazer isso…</p>
+
+<p>Aqui sem o freeze:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="no">CONSTANT</span> <span class="o">=</span> <span class="s2">"xunda"</span>
 <span class="o">=&gt;</span> <span class="s2">"xunda"</span>
@@ -497,6 +511,8 @@ cada um de acordo com a necessidade do nosso código.</p>
 </code></pre>
 </div>
 
+<p>E com o freeze:</p>
+
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="no">CONSTANT</span> <span class="o">=</span> <span class="s2">"xunda"</span><span class="p">.</span><span class="nf">freeze</span>
 <span class="o">=&gt;</span> <span class="s2">"xunda"</span>
 
@@ -510,7 +526,18 @@ cada um de acordo com a necessidade do nosso código.</p>
 </code></pre>
 </div>
 
+<p>O que na verdade quando reiniciamos a constante ela até avisa que você
+está redefinindo uma constante mas muda o valor da mesma forma com
+freeze ou sem freeze nesse caso o comportamento é o mesmo.</p>
+
 <h2 id="concluso-3">Conclusão</h2>
+
+<p>O Ruby não o proibe de modificar as constantes dependendo do tipo do
+objeto ele te avisa que está modificando uma constante porém deixa livre
+para muda-la.</p>
+
+<p>Ele trata essa questão muito mais na parte conceitual mesmo do que até
+na pratica.</p>
 
 <blockquote>
   <p>Eu consigo fazer com que uma constante não seja alterada porém não

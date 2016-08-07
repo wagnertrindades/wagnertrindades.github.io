@@ -5,8 +5,8 @@
     <description>Web Developer</description>
     <link>http://wagnertrindades.github.io//</link>
     <atom:link href="http://wagnertrindades.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 07 Aug 2016 15:46:41 +0000</pubDate>
-    <lastBuildDate>Sun, 07 Aug 2016 15:46:41 +0000</lastBuildDate>
+    <pubDate>Sun, 07 Aug 2016 22:24:23 +0000</pubDate>
+    <lastBuildDate>Sun, 07 Aug 2016 22:24:23 +0000</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -303,6 +303,9 @@ cada um de acordo com a necessidade do nosso código.&lt;/p&gt;
 
 &lt;h2 id=&quot;constantes-no-so-constantes&quot;&gt;Constantes não são constantes&lt;/h2&gt;
 
+&lt;p&gt;Quando começei a ver sobre as constantes no Ruby que tinha a intenção de
+realmente não ser alterada e me deparei com isto:&lt;/p&gt;
+
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;CONSTANT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 
@@ -310,11 +313,15 @@ cada um de acordo com a necessidade do nosso código.&lt;/p&gt;
 &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+&lt;p&gt;Bom na verdade mesmo definindo como uma constante eu posso altera-la a
+qualquer momento assim como uma váriavel, minha primeira reação quanto a
+isso foi esta…&lt;/p&gt;
+
 &lt;p&gt;&lt;img src=&quot;/images/posts/2016-07-25-5-coisas-que-eu-sabia-de-ruby/whatafuck.jpg&quot; alt=&quot;ish&quot; /&gt;&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Mas eu quero uma constante…&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Com um pouco de curiosidade para saber se de alguma forma eu poderia
+fazer com o que a constante não pudesse ser alterada. Tentei fazer isso
+dessa forma…&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;CONSTANT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;freeze&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
@@ -328,9 +335,16 @@ cada um de acordo com a necessidade do nosso código.&lt;/p&gt;
 &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Mas…&lt;/p&gt;
-&lt;/blockquote&gt;
+
+&lt;p&gt;E dessa forma com o método &lt;code class=&quot;highlighter-rouge&quot;&gt;freeze&lt;/code&gt; eu não posso alterar nesse caso o
+array colando mais valores nele e tudo mais…&lt;/p&gt;
+
+&lt;p&gt;Achei que tinha descoberto como realmente ter uma constante que nunca
+poderá ser mudada rsrs&lt;/p&gt;
+
+&lt;p&gt;Mas ao fazer mais experimentos, consegui fazer isso…&lt;/p&gt;
+
+&lt;p&gt;Aqui sem o freeze:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;CONSTANT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;xunda&quot;&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;xunda&quot;&lt;/span&gt;
@@ -345,6 +359,8 @@ cada um de acordo com a necessidade do nosso código.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
+&lt;p&gt;E com o freeze:&lt;/p&gt;
+
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;CONSTANT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;xunda&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;freeze&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;xunda&quot;&lt;/span&gt;
 
@@ -358,7 +374,18 @@ cada um de acordo com a necessidade do nosso código.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
+&lt;p&gt;O que na verdade quando reiniciamos a constante ela até avisa que você
+está redefinindo uma constante mas muda o valor da mesma forma com
+freeze ou sem freeze nesse caso o comportamento é o mesmo.&lt;/p&gt;
+
 &lt;h2 id=&quot;concluso-3&quot;&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;O Ruby não o proibe de modificar as constantes dependendo do tipo do
+objeto ele te avisa que está modificando uma constante porém deixa livre
+para muda-la.&lt;/p&gt;
+
+&lt;p&gt;Ele trata essa questão muito mais na parte conceitual mesmo do que até
+na pratica.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Eu consigo fazer com que uma constante não seja alterada porém não
