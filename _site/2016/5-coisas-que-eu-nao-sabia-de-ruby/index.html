@@ -371,9 +371,11 @@ BigDecimal.</p>
 </code></pre>
 </div>
 
-<blockquote>
-  <p>Não valida a quantidade de parametros</p>
-</blockquote>
+<p>Como podemos ver acima apesar de no <code class="highlighter-rouge">Proc</code> termos definido trabalhar com
+2 parametros no caso <em>x</em> e <em>y</em>, podemos passar somente um parametro ou 3
+parametros que ele irá imprimir o que conseguir sem nem reclamar rsrs.</p>
+
+<p>Já com Lambda é um pouco diferente, vamos ver abaixo:</p>
 
 <h4 id="lambda">Lambda</h4>
 
@@ -401,9 +403,15 @@ BigDecimal.</p>
 </code></pre>
 </div>
 
-<blockquote>
-  <p>Valida a quantidade de parametros</p>
-</blockquote>
+<p>Fazendo o mesmo com um <code class="highlighter-rouge">Lambda</code> ele já reclama que não consegue executar
+caso não passe exatamente os parametros que definiu em sua criação.</p>
+
+<p>Dessa forma vemos que o Proc não valida a quantidade de parametros
+passados pois permite passar inumeros parametros e ele
+tenta executar com o que foi passado.Já o Lambda não permite isso, ele
+valida se o número de parametros é exatamente o mesmo.</p>
+
+<p>Bom essa é a primeira diferença entre eles, mas vamos a segunda:</p>
 
 <h3 id="segunda-diferena">Segunda diferença</h3>
 

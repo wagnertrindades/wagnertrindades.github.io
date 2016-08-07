@@ -185,6 +185,8 @@ BigDecimal.
 
 ##  Diferenças entre Proc e Lambda
 
+
+
 ### Primeira diferença
 
 #### Proc
@@ -206,8 +208,12 @@ show.call(1, 2, 3)
 => nil
 ```
 
-> Não valida a quantidade de parametros
+Como podemos ver acima apesar de no `Proc` termos definido trabalhar com
+2 parametros no caso *x* e *y*, podemos passar somente um parametro ou 3
+parametros que ele irá imprimir o que conseguir sem nem reclamar rsrs.
 
+
+Já com Lambda é um pouco diferente, vamos ver abaixo:
 
 #### Lambda
 
@@ -235,7 +241,15 @@ ArgumentError: wrong number of arguments (3 for 2)
 
 ```
 
-> Valida a quantidade de parametros
+Fazendo o mesmo com um `Lambda` ele já reclama que não consegue executar
+caso não passe exatamente os parametros que definiu em sua criação.
+
+Dessa forma vemos que o Proc não valida a quantidade de parametros
+passados pois permite passar inumeros parametros e ele
+tenta executar com o que foi passado.Já o Lambda não permite isso, ele
+valida se o número de parametros é exatamente o mesmo.
+
+Bom essa é a primeira diferença entre eles, mas vamos a segunda:
 
 ### Segunda diferença
 

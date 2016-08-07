@@ -5,8 +5,8 @@
     <description>Web Developer</description>
     <link>http://wagnertrindades.github.io//</link>
     <atom:link href="http://wagnertrindades.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 02 Aug 2016 01:20:19 +0000</pubDate>
-    <lastBuildDate>Tue, 02 Aug 2016 01:20:19 +0000</lastBuildDate>
+    <pubDate>Sun, 07 Aug 2016 15:13:05 +0000</pubDate>
+    <lastBuildDate>Sun, 07 Aug 2016 15:13:05 +0000</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -219,9 +219,11 @@ BigDecimal.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Não valida a quantidade de parametros&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Como podemos ver acima apesar de no &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc&lt;/code&gt; termos definido trabalhar com
+2 parametros no caso &lt;em&gt;x&lt;/em&gt; e &lt;em&gt;y&lt;/em&gt;, podemos passar somente um parametro ou 3
+parametros que ele irá imprimir o que conseguir sem nem reclamar rsrs.&lt;/p&gt;
+
+&lt;p&gt;Já com Lambda é um pouco diferente, vamos ver abaixo:&lt;/p&gt;
 
 &lt;h4 id=&quot;lambda&quot;&gt;Lambda&lt;/h4&gt;
 
@@ -249,9 +251,15 @@ BigDecimal.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Valida a quantidade de parametros&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Fazendo o mesmo com um &lt;code class=&quot;highlighter-rouge&quot;&gt;Lambda&lt;/code&gt; ele já reclama que não consegue executar
+caso não passe exatamente os parametros que definiu em sua criação.&lt;/p&gt;
+
+&lt;p&gt;Dessa forma vemos que o Proc não valida a quantidade de parametros
+passados pois permite passar inumeros parametros e ele
+tenta executar com o que foi passado.Já o Lambda não permite isso, ele
+valida se o número de parametros é exatamente o mesmo.&lt;/p&gt;
+
+&lt;p&gt;Bom essa é a primeira diferença entre eles, mas vamos a segunda:&lt;/p&gt;
 
 &lt;h3 id=&quot;segunda-diferena&quot;&gt;Segunda diferença&lt;/h3&gt;
 
