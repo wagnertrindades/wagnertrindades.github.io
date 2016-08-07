@@ -288,8 +288,8 @@ lambda_stop # Cheguei...; Hey; Saindo...
 
 ### Conclusão
 
-> Use de acordo com a situação...
-
+Agora que sabemos essas duas diferenças entre os dois podemos usar essas particuliaridades de
+cada um de acordo com a necessidade do nosso código.
 
 ## Constantes não são constantes
 

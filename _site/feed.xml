@@ -5,8 +5,8 @@
     <description>Web Developer</description>
     <link>http://wagnertrindades.github.io//</link>
     <atom:link href="http://wagnertrindades.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 07 Aug 2016 15:27:04 +0000</pubDate>
-    <lastBuildDate>Sun, 07 Aug 2016 15:27:04 +0000</lastBuildDate>
+    <pubDate>Sun, 07 Aug 2016 15:46:41 +0000</pubDate>
+    <lastBuildDate>Sun, 07 Aug 2016 15:46:41 +0000</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -298,9 +298,8 @@ Lambda são executadas como pode ver nesse exemplo:&lt;/p&gt;
 
 &lt;h3 id=&quot;concluso-2&quot;&gt;Conclusão&lt;/h3&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Use de acordo com a situação…&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Agora que sabemos essas duas diferenças entre os dois podemos usar essas particuliaridades de
+cada um de acordo com a necessidade do nosso código.&lt;/p&gt;
 
 &lt;h2 id=&quot;constantes-no-so-constantes&quot;&gt;Constantes não são constantes&lt;/h2&gt;
 
