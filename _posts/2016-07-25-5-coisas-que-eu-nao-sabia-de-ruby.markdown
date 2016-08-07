@@ -385,25 +385,16 @@ que tem um jeito sim
 
 ##  Precedência de operadores booleanos
 
+Quando começei a ver Ruby e vi que tinha o **and**, **&&**, **or** e
+**||** a principio pensei que o **and** e **&&** fossem iguais, assim
+como o **or** e **||** também.
+
+Porém vendo um pouco mais sobre Ruby descobri que muito pelo contrario,
+são bem diferentes!
+
+Vamos ver a seguir ;)
+
 ### and != &&
-
-#### and
-
-```ruby
-do_something = "123"
-=> "123"
-
-do_other_stuff = "abc"
-=> "abc"
-
-if var = do_something and do_other_stuff
-  puts "var is #{var}"
-end
-var is 123
-=> nil
-```
-
-> ( var = do_something ) and do_other_stuff
 
 #### &&
 
@@ -421,21 +412,54 @@ var is abc
 => nil
 ```
 
-> var = ( do_something && do_other_stuff )
+No caso do **&&** o Ruby faz a comparação entre as duas variáveis dessa
+forma:
 
-### or != ||
+`var = ( do_something && do_other_stuff )`
 
-#### or
+Por isso ele retorna o `var` como abc neste caso, por que ele verifica
+as duas e retorna a última no caso da duas serem **true**.
 
-> ( var = do_something or do_other_stuff )
+#### and
+
+```ruby
+do_something = "123"
+=> "123"
+
+do_other_stuff = "abc"
+=> "abc"
+
+if var = do_something and do_other_stuff
+  puts "var is #{var}"
+end
+var is 123
+=> nil
+```
+
+Já com o **and** é bem diferente, como vemos acima ele retorna a
+variavel como *123* porque faz esse tipo de execução:
+
+`( var = do_something ) and do_other_stuff`
+
+Então ele já inicia sua execução atribuindo o **do_something** ao `var`
+desse forma ele já retornado porque os dois são diferentes.
+
+E com o **or** e **||** acontece a mesma coisa, a execução segue o mesmo
+padrão, veja abaixo...
 
 #### ||
 
-> var = ( do_something || do_other_stuff )
+`var = ( do_something || do_other_stuff )`
 
-### Não vou usar, senão...
+#### or
 
-! Gif deu merda kkk
+`( var = do_something or do_other_stuff )`
+
+Vendo isso a minha primeira conclusão foi em sempre utilizar o **&&** e
+o **||** e esquecer que existe o **and** e **or** senão... kkk
+
+<iframe src="//giphy.com/embed/sCKxksj4A8Tg4" width="480" height="310" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
 
 ### Avdi Grimm
 

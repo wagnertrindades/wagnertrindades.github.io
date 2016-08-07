@@ -5,8 +5,8 @@
     <description>Web Developer</description>
     <link>http://wagnertrindades.github.io//</link>
     <atom:link href="http://wagnertrindades.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 07 Aug 2016 22:24:23 +0000</pubDate>
-    <lastBuildDate>Sun, 07 Aug 2016 22:24:23 +0000</lastBuildDate>
+    <pubDate>Sun, 07 Aug 2016 23:52:46 +0000</pubDate>
+    <lastBuildDate>Sun, 07 Aug 2016 23:52:46 +0000</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -397,27 +397,16 @@ que tem um jeito sim&lt;/p&gt;
 
 &lt;h2 id=&quot;precedncia-de-operadores-booleanos&quot;&gt;Precedência de operadores booleanos&lt;/h2&gt;
 
+&lt;p&gt;Quando começei a ver Ruby e vi que tinha o &lt;strong&gt;and&lt;/strong&gt;, &lt;strong&gt;&amp;amp;&amp;amp;&lt;/strong&gt;, &lt;strong&gt;or&lt;/strong&gt; e
+&lt;strong&gt;||&lt;/strong&gt; a principio pensei que o &lt;strong&gt;and&lt;/strong&gt; e &lt;strong&gt;&amp;amp;&amp;amp;&lt;/strong&gt; fossem iguais, assim
+como o &lt;strong&gt;or&lt;/strong&gt; e &lt;strong&gt;||&lt;/strong&gt; também.&lt;/p&gt;
+
+&lt;p&gt;Porém vendo um pouco mais sobre Ruby descobri que muito pelo contrario,
+são bem diferentes!&lt;/p&gt;
+
+&lt;p&gt;Vamos ver a seguir ;)&lt;/p&gt;
+
 &lt;h3 id=&quot;and--&quot;&gt;and != &amp;amp;&amp;amp;&lt;/h3&gt;
-
-&lt;h4 id=&quot;and&quot;&gt;and&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;do_something&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;do_other_stuff&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;abc&quot;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;abc&quot;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;do_something&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;do_other_stuff&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;var is &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;( var = do_something ) and do_other_stuff&lt;/p&gt;
-&lt;/blockquote&gt;
 
 &lt;h4 id=&quot;section&quot;&gt;&amp;amp;&amp;amp;&lt;/h4&gt;
 
@@ -435,35 +424,53 @@ que tem um jeito sim&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;var = ( do_something &amp;amp;&amp;amp; do_other_stuff )&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;No caso do &lt;strong&gt;&amp;amp;&amp;amp;&lt;/strong&gt; o Ruby faz a comparação entre as duas variáveis dessa
+forma:&lt;/p&gt;
 
-&lt;h3 id=&quot;or--&quot;&gt;or != ||&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;var = ( do_something &amp;amp;&amp;amp; do_other_stuff )&lt;/code&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;or&quot;&gt;or&lt;/h4&gt;
+&lt;p&gt;Por isso ele retorna o &lt;code class=&quot;highlighter-rouge&quot;&gt;var&lt;/code&gt; como abc neste caso, por que ele verifica
+as duas e retorna a última no caso da duas serem &lt;strong&gt;true&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;( var = do_something or do_other_stuff )&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;h4 id=&quot;and&quot;&gt;and&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;do_something&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;do_other_stuff&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;abc&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;abc&quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;do_something&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;do_other_stuff&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;var is &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Já com o &lt;strong&gt;and&lt;/strong&gt; é bem diferente, como vemos acima ele retorna a
+variavel como &lt;em&gt;123&lt;/em&gt; porque faz esse tipo de execução:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;( var = do_something ) and do_other_stuff&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Então ele já inicia sua execução atribuindo o &lt;strong&gt;do_something&lt;/strong&gt; ao &lt;code class=&quot;highlighter-rouge&quot;&gt;var&lt;/code&gt;
+desse forma ele já retornado porque os dois são diferentes.&lt;/p&gt;
+
+&lt;p&gt;E com o &lt;strong&gt;or&lt;/strong&gt; e &lt;strong&gt;||&lt;/strong&gt; acontece a mesma coisa, a execução segue o mesmo
+padrão, veja abaixo…&lt;/p&gt;
 
 &lt;h4 id=&quot;section-1&quot;&gt;||&lt;/h4&gt;
 
-&lt;blockquote&gt;
-  &lt;table&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td&gt;var = ( do_something&lt;/td&gt;
-        &lt;td&gt; &lt;/td&gt;
-        &lt;td&gt;do_other_stuff )&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;var = ( do_something || do_other_stuff )&lt;/code&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;no-vou-usar-seno&quot;&gt;Não vou usar, senão…&lt;/h3&gt;
+&lt;h4 id=&quot;or&quot;&gt;or&lt;/h4&gt;
 
-&lt;p&gt;! Gif deu merda kkk&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;( var = do_something or do_other_stuff )&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Vendo isso a minha primeira conclusão foi em sempre utilizar o &lt;strong&gt;&amp;amp;&amp;amp;&lt;/strong&gt; e
+o &lt;strong&gt;||&lt;/strong&gt; e esquecer que existe o &lt;strong&gt;and&lt;/strong&gt; e &lt;strong&gt;or&lt;/strong&gt; senão… kkk&lt;/p&gt;
+
+&lt;iframe src=&quot;//giphy.com/embed/sCKxksj4A8Tg4&quot; width=&quot;480&quot; height=&quot;310&quot; frameborder=&quot;0&quot; class=&quot;giphy-embed&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;h3 id=&quot;avdi-grimm&quot;&gt;Avdi Grimm&lt;/h3&gt;
 

@@ -549,27 +549,16 @@ que tem um jeito sim</p>
 
 <h2 id="precedncia-de-operadores-booleanos">Precedência de operadores booleanos</h2>
 
+<p>Quando começei a ver Ruby e vi que tinha o <strong>and</strong>, <strong>&amp;&amp;</strong>, <strong>or</strong> e
+<strong>||</strong> a principio pensei que o <strong>and</strong> e <strong>&amp;&amp;</strong> fossem iguais, assim
+como o <strong>or</strong> e <strong>||</strong> também.</p>
+
+<p>Porém vendo um pouco mais sobre Ruby descobri que muito pelo contrario,
+são bem diferentes!</p>
+
+<p>Vamos ver a seguir ;)</p>
+
 <h3 id="and--">and != &amp;&amp;</h3>
-
-<h4 id="and">and</h4>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">do_something</span> <span class="o">=</span> <span class="s2">"123"</span>
-<span class="o">=&gt;</span> <span class="s2">"123"</span>
-
-<span class="n">do_other_stuff</span> <span class="o">=</span> <span class="s2">"abc"</span>
-<span class="o">=&gt;</span> <span class="s2">"abc"</span>
-
-<span class="k">if</span> <span class="n">var</span> <span class="o">=</span> <span class="n">do_something</span> <span class="n">and</span> <span class="n">do_other_stuff</span>
-  <span class="nb">puts</span> <span class="s2">"var is </span><span class="si">#{</span><span class="n">var</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">var</span> <span class="n">is</span> <span class="mi">123</span>
-<span class="o">=&gt;</span> <span class="kp">nil</span>
-</code></pre>
-</div>
-
-<blockquote>
-  <p>( var = do_something ) and do_other_stuff</p>
-</blockquote>
 
 <h4 id="section">&amp;&amp;</h4>
 
@@ -587,35 +576,53 @@ que tem um jeito sim</p>
 </code></pre>
 </div>
 
-<blockquote>
-  <p>var = ( do_something &amp;&amp; do_other_stuff )</p>
-</blockquote>
+<p>No caso do <strong>&amp;&amp;</strong> o Ruby faz a comparação entre as duas variáveis dessa
+forma:</p>
 
-<h3 id="or--">or != ||</h3>
+<p><code class="highlighter-rouge">var = ( do_something &amp;&amp; do_other_stuff )</code></p>
 
-<h4 id="or">or</h4>
+<p>Por isso ele retorna o <code class="highlighter-rouge">var</code> como abc neste caso, por que ele verifica
+as duas e retorna a última no caso da duas serem <strong>true</strong>.</p>
 
-<blockquote>
-  <p>( var = do_something or do_other_stuff )</p>
-</blockquote>
+<h4 id="and">and</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">do_something</span> <span class="o">=</span> <span class="s2">"123"</span>
+<span class="o">=&gt;</span> <span class="s2">"123"</span>
+
+<span class="n">do_other_stuff</span> <span class="o">=</span> <span class="s2">"abc"</span>
+<span class="o">=&gt;</span> <span class="s2">"abc"</span>
+
+<span class="k">if</span> <span class="n">var</span> <span class="o">=</span> <span class="n">do_something</span> <span class="n">and</span> <span class="n">do_other_stuff</span>
+  <span class="nb">puts</span> <span class="s2">"var is </span><span class="si">#{</span><span class="n">var</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">var</span> <span class="n">is</span> <span class="mi">123</span>
+<span class="o">=&gt;</span> <span class="kp">nil</span>
+</code></pre>
+</div>
+
+<p>Já com o <strong>and</strong> é bem diferente, como vemos acima ele retorna a
+variavel como <em>123</em> porque faz esse tipo de execução:</p>
+
+<p><code class="highlighter-rouge">( var = do_something ) and do_other_stuff</code></p>
+
+<p>Então ele já inicia sua execução atribuindo o <strong>do_something</strong> ao <code class="highlighter-rouge">var</code>
+desse forma ele já retornado porque os dois são diferentes.</p>
+
+<p>E com o <strong>or</strong> e <strong>||</strong> acontece a mesma coisa, a execução segue o mesmo
+padrão, veja abaixo…</p>
 
 <h4 id="section-1">||</h4>
 
-<blockquote>
-  <table>
-    <tbody>
-      <tr>
-        <td>var = ( do_something</td>
-        <td> </td>
-        <td>do_other_stuff )</td>
-      </tr>
-    </tbody>
-  </table>
-</blockquote>
+<p><code class="highlighter-rouge">var = ( do_something || do_other_stuff )</code></p>
 
-<h3 id="no-vou-usar-seno">Não vou usar, senão…</h3>
+<h4 id="or">or</h4>
 
-<p>! Gif deu merda kkk</p>
+<p><code class="highlighter-rouge">( var = do_something or do_other_stuff )</code></p>
+
+<p>Vendo isso a minha primeira conclusão foi em sempre utilizar o <strong>&amp;&amp;</strong> e
+o <strong>||</strong> e esquecer que existe o <strong>and</strong> e <strong>or</strong> senão… kkk</p>
+
+<iframe src="//giphy.com/embed/sCKxksj4A8Tg4" width="480" height="310" frameborder="0" class="giphy-embed" allowfullscreen=""></iframe>
 
 <h3 id="avdi-grimm">Avdi Grimm</h3>
 
