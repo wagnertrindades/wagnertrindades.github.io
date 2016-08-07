@@ -5,8 +5,8 @@
     <description>Web Developer</description>
     <link>http://wagnertrindades.github.io//</link>
     <atom:link href="http://wagnertrindades.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 07 Aug 2016 15:13:05 +0000</pubDate>
-    <lastBuildDate>Sun, 07 Aug 2016 15:13:05 +0000</lastBuildDate>
+    <pubDate>Sun, 07 Aug 2016 15:27:04 +0000</pubDate>
+    <lastBuildDate>Sun, 07 Aug 2016 15:27:04 +0000</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -265,6 +265,11 @@ valida se o número de parametros é exatamente o mesmo.&lt;/p&gt;
 
 &lt;h4 id=&quot;proc-1&quot;&gt;Proc&lt;/h4&gt;
 
+&lt;p&gt;Bom quando temos um Proc dentro de um método e dentro do Proc há um
+&lt;code class=&quot;highlighter-rouge&quot;&gt;return&lt;/code&gt;, esse return para a execução do método associado ao Proc
+fazendo com que a linhas após o &lt;code class=&quot;highlighter-rouge&quot;&gt;return&lt;/code&gt; do Proc não sejam executadas.
+Como pode ver no exemplo abaixo:&lt;/p&gt;
+
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;proc_stop&lt;/span&gt;
   &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Cheguei...&quot;&lt;/span&gt;
   &lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hey&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Ho!&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
@@ -275,11 +280,11 @@ valida se o número de parametros é exatamente o mesmo.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;O return dentro de um Proc faz o retorno do método associado&lt;/p&gt;
-&lt;/blockquote&gt;
-
 &lt;h4 id=&quot;lambda-1&quot;&gt;Lambda&lt;/h4&gt;
+
+&lt;p&gt;Já com o Lambda mesmo tendo um &lt;code class=&quot;highlighter-rouge&quot;&gt;return&lt;/code&gt; ele somente executa o return no
+contexto do Lambda. Dessa forma as linhas de código do método após o
+Lambda são executadas como pode ver nesse exemplo:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;lambda_stop&lt;/span&gt;
   &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Cheguei...&quot;&lt;/span&gt;
@@ -290,10 +295,6 @@ valida se o número de parametros é exatamente o mesmo.&lt;/p&gt;
 &lt;span class=&quot;n&quot;&gt;lambda_stop&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Cheguei...; Hey; Saindo...&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;O return dentro de um Lambda retorna apenas o contexto do Lambda&lt;/p&gt;
-&lt;/blockquote&gt;
 
 &lt;h3 id=&quot;concluso-2&quot;&gt;Conclusão&lt;/h3&gt;
 

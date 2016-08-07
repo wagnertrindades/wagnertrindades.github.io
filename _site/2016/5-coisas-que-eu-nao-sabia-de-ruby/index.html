@@ -417,6 +417,11 @@ valida se o número de parametros é exatamente o mesmo.</p>
 
 <h4 id="proc-1">Proc</h4>
 
+<p>Bom quando temos um Proc dentro de um método e dentro do Proc há um
+<code class="highlighter-rouge">return</code>, esse return para a execução do método associado ao Proc
+fazendo com que a linhas após o <code class="highlighter-rouge">return</code> do Proc não sejam executadas.
+Como pode ver no exemplo abaixo:</p>
+
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">proc_stop</span>
   <span class="nb">puts</span> <span class="s2">"Cheguei..."</span>
   <span class="nb">proc</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">"Hey"</span><span class="p">;</span> <span class="k">return</span><span class="p">;</span> <span class="nb">puts</span> <span class="s2">"Ho!"</span> <span class="p">}.</span><span class="nf">call</span>
@@ -427,11 +432,11 @@ valida se o número de parametros é exatamente o mesmo.</p>
 </code></pre>
 </div>
 
-<blockquote>
-  <p>O return dentro de um Proc faz o retorno do método associado</p>
-</blockquote>
-
 <h4 id="lambda-1">Lambda</h4>
+
+<p>Já com o Lambda mesmo tendo um <code class="highlighter-rouge">return</code> ele somente executa o return no
+contexto do Lambda. Dessa forma as linhas de código do método após o
+Lambda são executadas como pode ver nesse exemplo:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">lambda_stop</span>
   <span class="nb">puts</span> <span class="s2">"Cheguei..."</span>
@@ -442,10 +447,6 @@ valida se o número de parametros é exatamente o mesmo.</p>
 <span class="n">lambda_stop</span> <span class="c1"># Cheguei...; Hey; Saindo...</span>
 </code></pre>
 </div>
-
-<blockquote>
-  <p>O return dentro de um Lambda retorna apenas o contexto do Lambda</p>
-</blockquote>
 
 <h3 id="concluso-2">Conclusão</h3>
 

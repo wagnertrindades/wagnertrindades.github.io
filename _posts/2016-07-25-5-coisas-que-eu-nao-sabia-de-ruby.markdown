@@ -255,6 +255,11 @@ Bom essa é a primeira diferença entre eles, mas vamos a segunda:
 
 #### Proc
 
+Bom quando temos um Proc dentro de um método e dentro do Proc há um
+`return`, esse return para a execução do método associado ao Proc
+fazendo com que a linhas após o `return` do Proc não sejam executadas.
+Como pode ver no exemplo abaixo:
+
 ```ruby
 def proc_stop
   puts "Cheguei..."
@@ -265,9 +270,11 @@ end
 proc_stop # Cheguei...; Hey
 ```
 
-> O return dentro de um Proc faz o retorno do método associado
-
 #### Lambda
+
+Já com o Lambda mesmo tendo um `return` ele somente executa o return no
+contexto do Lambda. Dessa forma as linhas de código do método após o
+Lambda são executadas como pode ver nesse exemplo:
 
 ```ruby
 def lambda_stop
@@ -278,8 +285,6 @@ end
 
 lambda_stop # Cheguei...; Hey; Saindo...
 ```
-
-> O return dentro de um Lambda retorna apenas o contexto do Lambda
 
 ### Conclusão
 
