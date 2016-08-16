@@ -619,26 +619,46 @@ padrão, veja abaixo…</p>
 
 <p><code class="highlighter-rouge">( var = do_something or do_other_stuff )</code></p>
 
-<p>Vendo isso a minha primeira conclusão foi em sempre utilizar o <strong>&amp;&amp;</strong> e
-o <strong>||</strong> e esquecer que existe o <strong>and</strong> e <strong>or</strong> senão… kkk</p>
+<p>Vendo isso a minha primeira conclusão foi em sempre utilizar o <strong>&amp;&amp;</strong>.
+e <strong>||</strong>.
+E esquecer que existe o <strong>and</strong> e <strong>or</strong> senão… kkk</p>
 
 <iframe src="//giphy.com/embed/sCKxksj4A8Tg4" width="480" height="310" frameborder="0" class="giphy-embed" allowfullscreen=""></iframe>
 
 <h3 id="avdi-grimm">Avdi Grimm</h3>
 
-<blockquote>
-  <p>Aqui começo explicando que começei a pesquisar se tinha algum caso bom
-para usar and e or e achei no blog do Avdi Grimm o post <a href="http://www.virtuouscode.com/2010/08/02/using-and-and-or-in-ruby/">Using “and”
-and “or” in Ruby</a>
-Onde ele explica sobre a precedencia dos operadores booleanos e como
-usar da forma correta</p>
-</blockquote>
+<p>Inconformado com a falta de utilidade que tinha o <strong>and</strong> e <strong>or</strong> no
+Ruby começei a pesquisar mais sobre esse assunto porque não acreditava
+que não tinha nenhuma utilidade e queria saber como utilizar e quando é melhor
+utilizar do que o <strong>&amp;&amp;</strong> e <strong>||</strong>.</p>
 
-<blockquote>
-  <p>Explico sobre como funciona a precedencia e que veio do Perl e talz</p>
-</blockquote>
+<p>E nessa busca achei um post de um cara bem conhecido da comunidade Ruby
+o <a href="http://www.virtuouscode.com/about/" target="_blank">Avdi Grimm</a> e
+ele nesse post <a href="http://www.virtuouscode.com/2010
+/08/02/using-and-and-or-in-ruby/" target="_blank">Using “and” and “or” in Ruby</a>.</p>
+
+<p>Nesse artigo ele explica bem a diferença dos operadores e que o <strong>and</strong>
+e <strong>or</strong> do Ruby vieram do Perl.
+E no Perl eles tem o objetivo de serem utilizados
+para controlar o fluxo da aplicação e assim como o <strong>if</strong> e <strong>unless</strong>.</p>
+
+<p><code class="highlighter-rouge">do_something() or die "It didn't work"</code></p>
+
+<p>No Ruby eles tem esse mesmo proposito de controlar o fluxo da operação e
+não de ser um operador booleano.</p>
+
+<p>Bom, vamos ver mais alguns exemplos sobre como utilizar para controlar o
+fluxo da operação</p>
 
 <h3 id="or-1">or</h3>
+
+<p>No exemplo abaixo, podemos ver que é possivel utilizar o <code class="highlighter-rouge">or</code> tendo a
+primeira condição com um retorno boolean neste caso o <code class="highlighter-rouge">post.have_posts?</code>
+e logo após a ação que ele irá fazer.
+Então se essa primeira condição retornar <strong>true</strong> ele nem executa a
+segunda ação e caso retorne <strong>false</strong> ele a executa.</p>
+
+<p>Nesse caso teria mais um sentido de faça isso <strong>ou</strong> faça aquilo</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Post</span>
   <span class="k">def</span> <span class="nf">have_posts?</span>
@@ -649,13 +669,23 @@ usar da forma correta</p>
 <span class="n">post</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">new</span>
 <span class="n">post</span><span class="p">.</span><span class="nf">have_posts?</span> <span class="n">or</span> <span class="k">raise</span> <span class="s2">"Não tem posts!"</span>
 <span class="c1">#=&gt; RuntimeError: Não tem posts!</span>
+</code></pre>
+</div>
 
-<span class="k">raise</span> <span class="s2">"Não tem posts!"</span> <span class="k">unless</span> <span class="n">post</span><span class="p">.</span><span class="nf">have_posts?</span>
+<p>O comportamento é muito similiar a ter um <code class="highlighter-rouge">unless</code> como abaixo:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">raise</span> <span class="s2">"Não tem posts!"</span> <span class="k">unless</span> <span class="n">post</span><span class="p">.</span><span class="nf">have_posts?</span>
 <span class="c1">#=&gt; RuntimeError: Não tem posts!</span>
 </code></pre>
 </div>
 
 <h3 id="and-1">and</h3>
+
+<p>Utilizando o <code class="highlighter-rouge">and</code> o comportamento é igual na questão de precedência a
+diferença é que para ele executar a segunda ação a primeira tem que
+retornar <code class="highlighter-rouge">true</code></p>
+
+<p>Nesse caso o sentido é mais de faça isso <strong>e</strong> aquilo</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Post</span>
   <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
@@ -669,26 +699,34 @@ usar da forma correta</p>
 
 <span class="n">post</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"5 dicas de Ruby"</span><span class="p">)</span> <span class="n">and</span> <span class="n">post</span><span class="p">.</span><span class="nf">publish!</span>
 <span class="c1">#=&gt; Post 5 dicas de Ruby publicado!</span>
+</code></pre>
+</div>
 
-<span class="n">post</span><span class="p">.</span><span class="nf">publish!</span> <span class="k">if</span> <span class="n">post</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"5 dicas de Ruby"</span><span class="p">)</span>
+<p>Nesse caso, o comportamente é igual ao utilizar um <code class="highlighter-rouge">if</code> como abaixo:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">post</span><span class="p">.</span><span class="nf">publish!</span> <span class="k">if</span> <span class="n">post</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"5 dicas de Ruby"</span><span class="p">)</span>
 <span class="c1">#=&gt; Post 5 dicas de Ruby publicado!</span>
 </code></pre>
 </div>
 
 <p><strong>No rails</strong></p>
 
+<p>Um exemplo legal para utilizar o <code class="highlighter-rouge">and</code> no rails seria esse:</p>
+
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">post</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">find_by_name</span><span class="p">(</span><span class="s2">"5 dicas de Ruby"</span><span class="p">)</span> <span class="n">and</span> <span class="n">post</span><span class="p">.</span><span class="nf">publish!</span>
 <span class="c1">#=&gt; Post 5 dicas de Ruby publicado!</span>
 </code></pre>
 </div>
 
+<p>Onde ele busca o post e caso o encontre ele publica ;)</p>
+
 <h2 id="concluso-4">Conclusão</h2>
 
-<blockquote>
-  <p>Use a ferramenta da maneira correta…</p>
-</blockquote>
+<p>Sobre o uso de <code class="highlighter-rouge">and</code> e <code class="highlighter-rouge">or</code> certamente é não utiliza-los no lugar de <code class="highlighter-rouge">&amp;&amp;</code> e <code class="highlighter-rouge">||</code>
+pois como vimos acima são diferentes então sabendo disso é possivel
+tirar melhor proveito deles para dependendo do caso ter um código mais
+legivel.</p>
 
-<h2 id="thanks-brow">Thanks brow</h2>
 
   </section>
   

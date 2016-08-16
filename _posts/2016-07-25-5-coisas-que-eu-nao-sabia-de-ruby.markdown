@@ -455,23 +455,47 @@ padrão, veja abaixo...
 
 `( var = do_something or do_other_stuff )`
 
-Vendo isso a minha primeira conclusão foi em sempre utilizar o **&&** e
-o **||** e esquecer que existe o **and** e **or** senão... kkk
+Vendo isso a minha primeira conclusão foi em sempre utilizar o **&&**.
+e **||**.
+E esquecer que existe o **and** e **or** senão... kkk
 
 <iframe src="//giphy.com/embed/sCKxksj4A8Tg4" width="480" height="310" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
 
 ### Avdi Grimm
 
-> Aqui começo explicando que começei a pesquisar se tinha algum caso bom
-> para usar and e or e achei no blog do Avdi Grimm o post [Using "and"
-> and "or" in Ruby](http://www.virtuouscode.com/2010/08/02/using-and-and-or-in-ruby/)
-> Onde ele explica sobre a precedencia dos operadores booleanos e como
-> usar da forma correta
+Inconformado com a falta de utilidade que tinha o **and** e **or** no
+Ruby começei a pesquisar mais sobre esse assunto porque não acreditava
+que não tinha nenhuma utilidade e queria saber como utilizar e quando é melhor
+utilizar do que o **&&** e **||**.
 
-> Explico sobre como funciona a precedencia e que veio do Perl e talz
+E nessa busca achei um post de um cara bem conhecido da comunidade Ruby
+o [Avdi Grimm](http://www.virtuouscode.com/about/){:target="_blank"} e
+ele nesse post [Using "and" and "or" in Ruby](http://www.virtuouscode.com/2010
+/08/02/using-and-and-or-in-ruby/){:target="_blank"}.
+
+Nesse artigo ele explica bem a diferença dos operadores e que o **and**
+e **or** do Ruby vieram do Perl.
+E no Perl eles tem o objetivo de serem utilizados
+para controlar o fluxo da aplicação e assim como o **if** e **unless**.
+
+`do_something() or die "It didn't work"`
+
+No Ruby eles tem esse mesmo proposito de controlar o fluxo da operação e
+não de ser um operador booleano.
+
+Bom, vamos ver mais alguns exemplos sobre como utilizar para controlar o
+fluxo da operação
 
 ### or
+
+No exemplo abaixo, podemos ver que é possivel utilizar o `or` tendo a
+primeira condição com um retorno boolean neste caso o `post.have_posts?`
+e logo após a ação que ele irá fazer.
+Então se essa primeira condição retornar **true** ele nem executa a
+segunda ação e caso retorne **false** ele a executa.
+
+Nesse caso teria mais um sentido de faça isso **ou** faça aquilo
 
 ```ruby
 class Post
@@ -483,12 +507,22 @@ end
 post = Post.new
 post.have_posts? or raise "Não tem posts!"
 #=> RuntimeError: Não tem posts!
+```
 
+O comportamento é muito similiar a ter um `unless` como abaixo:
+
+```ruby
 raise "Não tem posts!" unless post.have_posts?
 #=> RuntimeError: Não tem posts!
 ```
 
 ### and
+
+Utilizando o `and` o comportamento é igual na questão de precedência a
+diferença é que para ele executar a segunda ação a primeira tem que
+retornar `true`
+
+Nesse caso o sentido é mais de faça isso **e** aquilo
 
 ```ruby
 class Post
@@ -503,20 +537,30 @@ end
 
 post = Post.new("5 dicas de Ruby") and post.publish!
 #=> Post 5 dicas de Ruby publicado!
+```
 
+Nesse caso, o comportamente é igual ao utilizar um `if` como abaixo:
+
+```ruby
 post.publish! if post = Post.new("5 dicas de Ruby")
 #=> Post 5 dicas de Ruby publicado!
 ```
 
 **No rails**
 
+Um exemplo legal para utilizar o `and` no rails seria esse:
+
 ```ruby
 post = Post.find_by_name("5 dicas de Ruby") and post.publish!
 #=> Post 5 dicas de Ruby publicado!
 ```
 
+Onde ele busca o post e caso o encontre ele publica ;)
+
 ## Conclusão
 
-> Use a ferramenta da maneira correta...
+Sobre o uso de `and` e `or` certamente é não utiliza-los no lugar de `&&` e `||`
+pois como vimos acima são diferentes então sabendo disso é possivel
+tirar melhor proveito deles para dependendo do caso ter um código mais
+legivel.
 
-## Thanks brow

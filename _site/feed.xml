@@ -5,8 +5,8 @@
     <description>Web Developer</description>
     <link>http://wagnertrindades.github.io//</link>
     <atom:link href="http://wagnertrindades.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 07 Aug 2016 23:52:46 +0000</pubDate>
-    <lastBuildDate>Sun, 07 Aug 2016 23:52:46 +0000</lastBuildDate>
+    <pubDate>Tue, 16 Aug 2016 19:49:22 +0000</pubDate>
+    <lastBuildDate>Tue, 16 Aug 2016 19:49:22 +0000</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -467,26 +467,46 @@ padrão, veja abaixo…&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;( var = do_something or do_other_stuff )&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Vendo isso a minha primeira conclusão foi em sempre utilizar o &lt;strong&gt;&amp;amp;&amp;amp;&lt;/strong&gt; e
-o &lt;strong&gt;||&lt;/strong&gt; e esquecer que existe o &lt;strong&gt;and&lt;/strong&gt; e &lt;strong&gt;or&lt;/strong&gt; senão… kkk&lt;/p&gt;
+&lt;p&gt;Vendo isso a minha primeira conclusão foi em sempre utilizar o &lt;strong&gt;&amp;amp;&amp;amp;&lt;/strong&gt;.
+e &lt;strong&gt;||&lt;/strong&gt;.
+E esquecer que existe o &lt;strong&gt;and&lt;/strong&gt; e &lt;strong&gt;or&lt;/strong&gt; senão… kkk&lt;/p&gt;
 
 &lt;iframe src=&quot;//giphy.com/embed/sCKxksj4A8Tg4&quot; width=&quot;480&quot; height=&quot;310&quot; frameborder=&quot;0&quot; class=&quot;giphy-embed&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;h3 id=&quot;avdi-grimm&quot;&gt;Avdi Grimm&lt;/h3&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Aqui começo explicando que começei a pesquisar se tinha algum caso bom
-para usar and e or e achei no blog do Avdi Grimm o post &lt;a href=&quot;http://www.virtuouscode.com/2010/08/02/using-and-and-or-in-ruby/&quot;&gt;Using “and”
-and “or” in Ruby&lt;/a&gt;
-Onde ele explica sobre a precedencia dos operadores booleanos e como
-usar da forma correta&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Inconformado com a falta de utilidade que tinha o &lt;strong&gt;and&lt;/strong&gt; e &lt;strong&gt;or&lt;/strong&gt; no
+Ruby começei a pesquisar mais sobre esse assunto porque não acreditava
+que não tinha nenhuma utilidade e queria saber como utilizar e quando é melhor
+utilizar do que o &lt;strong&gt;&amp;amp;&amp;amp;&lt;/strong&gt; e &lt;strong&gt;||&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Explico sobre como funciona a precedencia e que veio do Perl e talz&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;E nessa busca achei um post de um cara bem conhecido da comunidade Ruby
+o &lt;a href=&quot;http://www.virtuouscode.com/about/&quot; target=&quot;_blank&quot;&gt;Avdi Grimm&lt;/a&gt; e
+ele nesse post &lt;a href=&quot;http://www.virtuouscode.com/2010
+/08/02/using-and-and-or-in-ruby/&quot; target=&quot;_blank&quot;&gt;Using “and” and “or” in Ruby&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Nesse artigo ele explica bem a diferença dos operadores e que o &lt;strong&gt;and&lt;/strong&gt;
+e &lt;strong&gt;or&lt;/strong&gt; do Ruby vieram do Perl.
+E no Perl eles tem o objetivo de serem utilizados
+para controlar o fluxo da aplicação e assim como o &lt;strong&gt;if&lt;/strong&gt; e &lt;strong&gt;unless&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;do_something() or die &quot;It didn&#39;t work&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;No Ruby eles tem esse mesmo proposito de controlar o fluxo da operação e
+não de ser um operador booleano.&lt;/p&gt;
+
+&lt;p&gt;Bom, vamos ver mais alguns exemplos sobre como utilizar para controlar o
+fluxo da operação&lt;/p&gt;
 
 &lt;h3 id=&quot;or-1&quot;&gt;or&lt;/h3&gt;
+
+&lt;p&gt;No exemplo abaixo, podemos ver que é possivel utilizar o &lt;code class=&quot;highlighter-rouge&quot;&gt;or&lt;/code&gt; tendo a
+primeira condição com um retorno boolean neste caso o &lt;code class=&quot;highlighter-rouge&quot;&gt;post.have_posts?&lt;/code&gt;
+e logo após a ação que ele irá fazer.
+Então se essa primeira condição retornar &lt;strong&gt;true&lt;/strong&gt; ele nem executa a
+segunda ação e caso retorne &lt;strong&gt;false&lt;/strong&gt; ele a executa.&lt;/p&gt;
+
+&lt;p&gt;Nesse caso teria mais um sentido de faça isso &lt;strong&gt;ou&lt;/strong&gt; faça aquilo&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Post&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;have_posts?&lt;/span&gt;
@@ -497,13 +517,23 @@ usar da forma correta&lt;/p&gt;
 &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;have_posts?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;raise&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Não tem posts!&quot;&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; RuntimeError: Não tem posts!&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;span class=&quot;k&quot;&gt;raise&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Não tem posts!&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;have_posts?&lt;/span&gt;
+&lt;p&gt;O comportamento é muito similiar a ter um &lt;code class=&quot;highlighter-rouge&quot;&gt;unless&lt;/code&gt; como abaixo:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;raise&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Não tem posts!&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;have_posts?&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; RuntimeError: Não tem posts!&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;and-1&quot;&gt;and&lt;/h3&gt;
+
+&lt;p&gt;Utilizando o &lt;code class=&quot;highlighter-rouge&quot;&gt;and&lt;/code&gt; o comportamento é igual na questão de precedência a
+diferença é que para ele executar a segunda ação a primeira tem que
+retornar &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Nesse caso o sentido é mais de faça isso &lt;strong&gt;e&lt;/strong&gt; aquilo&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Post&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -517,26 +547,34 @@ usar da forma correta&lt;/p&gt;
 
 &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5 dicas de Ruby&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;publish!&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; Post 5 dicas de Ruby publicado!&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;publish!&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5 dicas de Ruby&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;p&gt;Nesse caso, o comportamente é igual ao utilizar um &lt;code class=&quot;highlighter-rouge&quot;&gt;if&lt;/code&gt; como abaixo:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;publish!&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5 dicas de Ruby&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; Post 5 dicas de Ruby publicado!&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;No rails&lt;/strong&gt;&lt;/p&gt;
 
+&lt;p&gt;Um exemplo legal para utilizar o &lt;code class=&quot;highlighter-rouge&quot;&gt;and&lt;/code&gt; no rails seria esse:&lt;/p&gt;
+
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find_by_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5 dicas de Ruby&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;publish!&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; Post 5 dicas de Ruby publicado!&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
+&lt;p&gt;Onde ele busca o post e caso o encontre ele publica ;)&lt;/p&gt;
+
 &lt;h2 id=&quot;concluso-4&quot;&gt;Conclusão&lt;/h2&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Use a ferramenta da maneira correta…&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Sobre o uso de &lt;code class=&quot;highlighter-rouge&quot;&gt;and&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;or&lt;/code&gt; certamente é não utiliza-los no lugar de &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;||&lt;/code&gt;
+pois como vimos acima são diferentes então sabendo disso é possivel
+tirar melhor proveito deles para dependendo do caso ter um código mais
+legivel.&lt;/p&gt;
 
-&lt;h2 id=&quot;thanks-brow&quot;&gt;Thanks brow&lt;/h2&gt;
 </description>
         <pubDate>Mon, 25 Jul 2016 21:44:44 +0000</pubDate>
         <link>http://wagnertrindades.github.io//2016/5-coisas-que-eu-nao-sabia-de-ruby/</link>
